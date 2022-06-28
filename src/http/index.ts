@@ -9,10 +9,26 @@ type RequestOption = {
     timeout?: number
     dataType?: string
 }
+
+let BASE_URL = ""
+// #ifdef H5
+BASE_URL = '/api'
+// #endif
+// #ifdef APP-PLUS
+BASE_URL = "/"
+// #endif
+// #ifdef MP
+if (process.env.NODE_ENV === 'development') {
+    BASE_URL = "http://127.0.0.1:4523/m1/1199247-0-default"
+} else {
+    BASE_URL = "/"
+}
+// #endif
+
 function request(url: string, data?: object | string | ArrayBuffer, method?: keyof typeof Method, option?: RequestOption) {
     return new Promise((resolve, reject) => {
         uni.request({
-            url: url,
+            url: BASE_URL + url,
             data: data,
             method: method,
             ...option,
@@ -22,7 +38,7 @@ function request(url: string, data?: object | string | ArrayBuffer, method?: key
     })
 }
 const http = {
-    get: (url: string, data?: object) => request(url, data,'GET'),
-    post: (url: string, data?: object) => request(url, data,'POST')
+    get: (url: string, data?: object) => request(url, data, 'GET'),
+    post: (url: string, data?: object) => request(url, data, 'POST')
 }
 export default http
