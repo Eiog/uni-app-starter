@@ -102,6 +102,11 @@
         "usingComponents" : true,
         "uniStatistics" : {
             "enable" : false
+        },
+        "permission": {
+            "scope.userLocation":{
+                "desc":"你的位置信息将用于小程序位置接口的效果展示"
+            }
         }
     },
     "mp-alipay" : {
@@ -143,6 +148,11 @@
         },
         "devServer" : {
             "https" : false
+        },
+        "maps":{
+            "qqmap":{
+                "key":"GD4BZ-73BKU-7DDV2-B24YY-WOHX3-YTFBJ"
+            }
         }
     },
     "mp-jd" : {
