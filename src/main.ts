@@ -1,7 +1,7 @@
 import { createSSRApp } from "vue";
 import store from "./store";
 import App from "./App.vue";
-import 'uno.css'
+// import 'uno.css' //与tmui 冲突
 import './Interceptor'
 import tmui from "./tmui"
 export function createApp() {

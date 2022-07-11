@@ -1,21 +1,17 @@
 <template>
 <tm-app ref="app">
-  <view class="w-full h-full flex flex-col gap-10 items-center justify-center">
-    <text class="text-8xl">😎</text>
-    <text class="font-normal text-3xl animate-bounce">{{ title }}</text>
-    <view class="flex flex-col items-center">
-      <text class="text-2xl">{{ appStore.count }}</text>
-      <view class="flex items-center justify-center gap-3">
-        <view
-          class="bg-green-400 w-16 h-10 rounded-full text-white text-2xl font-normal text-center"
-          @click="appStore.count--"
-          >-</view
-        >
-        <view
-          class="bg-green-400 w-16 h-10 rounded-full text-white text-2xl font-normal text-center"
-          @click="appStore.count++"
-          >+</view
-        >
+  <view class="flex flex-col flex-1 flex-col-center-center">
+    <tm-text font-size="200" label="😎"></tm-text>
+    <tm-text font-size="60" :label="title"></tm-text>
+    <view class="flex flex-col flex-col-center-center">
+      <tm-text font-size="100" :label="appStore.count"></tm-text>
+      <view class="flex flex-row-center-center ">
+        <view class="mx-20">
+        <tm-button :width="84" :height="84" :round="10" :font-size="40" color="green" icon="tmicon-minus" @click="appStore.count--"></tm-button>
+        </view>
+        <view class="mx-20">
+        <tm-button :width="84" :height="84" :round="10" :font-size="40" color="red" icon="tmicon-plus" @click="appStore.count++"></tm-button>
+        </view>
       </view>
     </view>
   </view>
@@ -27,6 +23,7 @@ import { ref } from "vue";
 import { useAppStore } from "@/store";
 import http from "@/http";
 import tmApp from "@/tmui/components/tm-app/tm-app.vue"
+import tmButton from "@/tmui/components/tm-button/tm-button.vue";
 const appStore = useAppStore();
 const title = ref("Hello World");
 http.get("/demo").then((res) => {
