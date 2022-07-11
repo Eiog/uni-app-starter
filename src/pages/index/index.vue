@@ -1,4 +1,5 @@
 <template>
+<tm-app ref="app">
   <view class="w-full h-full flex flex-col gap-10 items-center justify-center">
     <text class="text-8xl">😎</text>
     <text class="font-normal text-3xl animate-bounce">{{ title }}</text>
@@ -18,12 +19,14 @@
       </view>
     </view>
   </view>
+  </tm-app>
 </template>
 
 <script setup lang="ts" name="aaa">
 import { ref } from "vue";
 import { useAppStore } from "@/store";
 import http from "@/http";
+import tmApp from "@/tmui/components/tm-app/tm-app.vue"
 const appStore = useAppStore();
 const title = ref("Hello World");
 http.get("/demo").then((res) => {

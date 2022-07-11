@@ -19,11 +19,12 @@ BASE_URL = "/"
 // #endif
 // #ifdef MP
 if (process.env.NODE_ENV === 'development') {
-    BASE_URL = "http://127.0.0.1:4523/m1/1199247-0-default"
+    BASE_URL = "https://mock.apifox.cn/m1/1199247-0-default"
 } else {
     BASE_URL = "/"
 }
 // #endif
+
 
 function request(url: string, data?: object | string | ArrayBuffer, method?: keyof typeof Method, option?: RequestOption) {
     return new Promise((resolve, reject) => {
@@ -32,7 +33,7 @@ function request(url: string, data?: object | string | ArrayBuffer, method?: key
             data: data,
             method: method,
             ...option,
-            success: res => { return resolve(res) },
+            success: res => { return resolve(res.data) },
             fail: err => { return reject(err) }
         })
     })

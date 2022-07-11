@@ -9,7 +9,7 @@ import { presetUno, presetAttributify, presetIcons } from 'unocss'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { viteMockServe } from 'vite-plugin-mock'
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
-
+import Icons from 'unplugin-icons/vite'
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const useMock = mode==='mock'
@@ -29,14 +29,14 @@ export default defineConfig(({ command, mode }) => {
         { "@dcloudio/uni-app": ["onLaunch", "onShow", "onHide"] },
       ],
       dirs: ["src/hooks", "src/store", "src/utils", "src/api"],
-      dts: "src/auto-import.d.ts",
+      dts: "src/typings/auto-import.d.ts",
     }),
     Components({
       /* options */
       dirs: ["src/components"],
       extensions: ["vue"],
       deep: true,
-      dts: "src/components.d.ts",
+      dts: "src/typings/components.d.ts",
       resolvers: [],
     }),
     viteMockServe({
@@ -50,6 +50,7 @@ export default defineConfig(({ command, mode }) => {
           setupProdMockServer();
         `
     }),
+    Icons({ compiler: 'vue3', autoInstall: true }),
     viteCommonjs(),
     uni(),
     Unocss(),
@@ -72,7 +73,7 @@ export default defineConfig(({ command, mode }) => {
       strictPort: true, // 如果端口已占用直接退出
       proxy: {
         '/api': {
-          target: 'http://127.0.0.1:4523/m1/1199247-0-default/api/',
+          target: 'https://mock.apifox.cn/m1/1199247-0-default/',
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, '')
         }
