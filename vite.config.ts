@@ -2,12 +2,9 @@ import { defineConfig } from "vite";
 import { resolve } from 'path'
 import uni from "@dcloudio/vite-plugin-uni";
 import Unocss from 'unocss/vite'
-import presetWxapp from 'unocss-preset-wxapp'
-import transformWxClass  from 'unplugin-transform-wx-class/vite'
 import { UnocssToUni } from "vite-plugin-unocss-to-uni";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
-import { presetUno, presetAttributify, presetIcons } from 'unocss'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { viteMockServe } from 'vite-plugin-mock'
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
@@ -55,13 +52,8 @@ export default defineConfig(({ command, mode }) => {
     Icons({ compiler: 'vue3', autoInstall: true }),
     viteCommonjs(),
     uni(),
-    // Unocss({
-    //   presets:[
-    //     presetWxapp(),
-    //   ],
-    // }),
-    // transformWxClass(),
-    // UnocssToUni(),
+    Unocss(),
+    UnocssToUni(),
     VueSetupExtend(),
   ]
   return {

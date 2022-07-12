@@ -14,8 +14,7 @@
       "dom"
     ],
     "types": [
-      "@dcloudio/types",
-      ".vscode"
+      "@dcloudio/types"
     ],
     "paths": {
       "@/*": [
