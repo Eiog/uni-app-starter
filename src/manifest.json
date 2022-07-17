@@ -136,7 +136,7 @@
         "uniStatistics" : {
             "enable" : false
         },
-        "title" : "tmui3.0",
+        "title" : "uni-template",
         "router" : {
             "mode" : "hash",
             "base" : "/h5/"
