@@ -2,17 +2,16 @@ import { defineConfig } from "vite";
 import { resolve } from 'path'
 import uni from "@dcloudio/vite-plugin-uni";
 import Unocss from 'unocss/vite'
-import { UnocssToUni } from "vite-plugin-unocss-to-uni";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
-import { viteMockServe } from 'vite-plugin-mock'
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
 import Icons from 'unplugin-icons/vite'
+import transformWeClass from 'unplugin-transform-we-class/vite'
+import { presetAttributifyWechat, defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
-  const useMock = mode==='mock'
-  
+export default defineConfig(() => {
+
   const plugins = [
     AutoImport({
       /* options */
@@ -38,22 +37,19 @@ export default defineConfig(({ command, mode }) => {
       dts: "src/typings/components.d.ts",
       resolvers: [],
     }),
-    viteMockServe({
-      mockPath: './src/mock',
-      localEnabled: true,
-      prodEnabled:false,
-      supportTs: true,
-      watchFiles: true,
-      injectCode: `
-          import { setupProdMockServer } from './mock';
-          setupProdMockServer();
-        `
-    }),
     Icons({ compiler: 'vue3', autoInstall: true }),
     viteCommonjs(),
     uni(),
-    Unocss(),
-    UnocssToUni(),
+
+    presetAttributifyWechat({
+      nonValuedAttribute: true,
+      classPrefix: 'u-',
+      attributes: [...defaultAttributes, 'items', 'justify', 'gap', 'w', 'h']
+    }),
+    transformWeClass({
+
+    }),
+    process.env.UNI_COMPILER !== 'nvue' ? Unocss() : undefined,
     VueSetupExtend(),
   ]
   return {
