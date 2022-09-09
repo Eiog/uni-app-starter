@@ -49,11 +49,11 @@
 
 <script setup lang="ts" name="aaa">
 import { ref } from 'vue';
-import { useAppStore } from '@/store';
-import http from '@/http';
-import tmApp from '@/tmui/components/tm-app/tm-app.vue';
-import tmButton from '@/tmui/components/tm-button/tm-button.vue';
-import tmMessage from '@/tmui/components/tm-message/tm-message.vue';
+import { useAppStore } from '~/stores';
+import http from '~/http';
+import tmApp from '~/tmui/components/tm-app/tm-app.vue';
+import tmButton from '~/tmui/components/tm-button/tm-button.vue';
+import tmMessage from '~/tmui/components/tm-message/tm-message.vue';
 const msgref = ref<InstanceType<typeof tmMessage> | null>(null);
 const appStore = useAppStore();
 const animation = ref(false);

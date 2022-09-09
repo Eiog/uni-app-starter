@@ -1,17 +1,19 @@
-import { defineConfig } from "vite";
-import { resolve } from 'path'
-import uni from "@dcloudio/vite-plugin-uni";
-import Unocss from 'unocss/vite'
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import VueSetupExtend from 'vite-plugin-vue-setup-extend'
-import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
-import Icons from 'unplugin-icons/vite'
-import transformWeClass from 'unplugin-transform-we-class/vite'
-import { presetAttributifyWechat, defaultAttributes } from 'unplugin-unocss-attributify-wechat/vite'
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import uni from '@dcloudio/vite-plugin-uni';
+import Unocss from 'unocss/vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import VueSetupExtend from 'vite-plugin-vue-setup-extend';
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
+import Icons from 'unplugin-icons/vite';
+import transformWeClass from 'unplugin-transform-we-class/vite';
+import {
+  presetAttributifyWechat,
+  defaultAttributes,
+} from 'unplugin-unocss-attributify-wechat/vite';
 // https://vitejs.dev/config/
 export default defineConfig(() => {
-
   const plugins = [
     AutoImport({
       /* options */
@@ -21,20 +23,20 @@ export default defineConfig(() => {
         /\.vue\?vue/, // .vue
       ],
       imports: [
-        "vue",
-        "@vueuse/core",
+        'vue',
+        '@vueuse/core',
         // 小程序特有的生命周期等从这里引入
-        { "@dcloudio/uni-app": ["onLaunch", "onShow", "onHide"] },
+        { '@dcloudio/uni-app': ['onLaunch', 'onShow', 'onHide'] },
       ],
-      dirs: ["src/hooks", "src/store", "src/utils", "src/api"],
-      dts: "src/typings/auto-import.d.ts",
+      dirs: ['src/hooks', 'src/store', 'src/utils', 'src/api'],
+      dts: 'src/typings/auto-import.d.ts',
     }),
     Components({
       /* options */
-      dirs: ["src/components"],
-      extensions: ["vue"],
+      dirs: ['src/components'],
+      extensions: ['vue'],
       deep: true,
-      dts: "src/typings/components.d.ts",
+      dts: 'src/typings/components.d.ts',
       resolvers: [],
     }),
     Icons({ compiler: 'vue3', autoInstall: true }),
@@ -44,21 +46,18 @@ export default defineConfig(() => {
     presetAttributifyWechat({
       nonValuedAttribute: true,
       classPrefix: 'u-',
-      attributes: [...defaultAttributes, 'items', 'justify', 'gap', 'w', 'h']
+      attributes: [...defaultAttributes, 'items', 'justify', 'gap', 'w', 'h'],
     }),
-    transformWeClass({
-
-    }),
+    transformWeClass({}),
     process.env.UNI_COMPILER !== 'nvue' ? Unocss() : undefined,
     VueSetupExtend(),
-  ]
+  ];
   return {
-    plugins: plugins
-    ,
+    plugins: plugins,
     resolve: {
       alias: {
-        "@": resolve(__dirname, './src'), // 路径别名
-      }
+        '~': resolve(__dirname, './src'), // 路径别名
+      },
     },
     server: {
       port: 9999,
@@ -70,9 +69,9 @@ export default defineConfig(() => {
         '/api': {
           target: 'https://mock.apifox.cn/m1/1199247-0-default/',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, '')
-        }
-      }
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
     },
-  }
+  };
 });

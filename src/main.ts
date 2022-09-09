@@ -1,5 +1,5 @@
 import { createSSRApp } from "vue";
-import store from "./store";
+import store from "./stores";
 import App from "./App.vue";
 import 'uno.css' 
 import './Interceptor'
