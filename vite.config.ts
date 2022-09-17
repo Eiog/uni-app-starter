@@ -4,15 +4,13 @@ import uni from '@dcloudio/vite-plugin-uni';
 import Unocss from 'unocss/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import VueSetupExtend from 'vite-plugin-vue-setup-extend';
-import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
-import Icons from 'unplugin-icons/vite';
 import transformWeClass from 'unplugin-transform-we-class/vite';
 import {
   presetAttributifyWechat,
   defaultAttributes,
 } from 'unplugin-unocss-attributify-wechat/vite';
 // https://vitejs.dev/config/
+
 export default defineConfig(() => {
   const plugins = [
     AutoImport({
@@ -25,38 +23,42 @@ export default defineConfig(() => {
       imports: [
         'vue',
         '@vueuse/core',
+        'pinia',
         // 小程序特有的生命周期等从这里引入
         { '@dcloudio/uni-app': ['onLaunch', 'onShow', 'onHide'] },
       ],
-      dirs: ['src/hooks', 'src/store', 'src/utils', 'src/api'],
+      dirs: ['src/hooks', 'src/stores', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',
+      eslintrc: {
+        enabled: true,
+        filepath: './.eslintrc-auto-import.json',
+        globalsPropValue: true,
+      },
     }),
     Components({
       /* options */
-      dirs: ['src/components'],
+      dirs: ['src/components', 'src/layouts'],
       extensions: ['vue'],
       deep: true,
       dts: 'src/typings/components.d.ts',
       resolvers: [],
     }),
-    Icons({ compiler: 'vue3', autoInstall: true }),
-    viteCommonjs(),
     uni(),
-
     presetAttributifyWechat({
       nonValuedAttribute: true,
       classPrefix: 'u-',
-      attributes: [...defaultAttributes, 'items', 'justify', 'gap', 'w', 'h'],
+      attributes: [...defaultAttributes],
     }),
     transformWeClass({}),
     process.env.UNI_COMPILER !== 'nvue' ? Unocss() : undefined,
-    VueSetupExtend(),
   ];
   return {
     plugins: plugins,
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
+        thorui: 'thorui-uni/lib/thorui', // 路径别名
       },
     },
     server: {

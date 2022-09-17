@@ -1,14 +1,12 @@
 import { createI18n } from 'vue-i18n';
-import zh_cn from '~/locales/cn.json';
-import en_us from '~/locales/en.json';
-type MessageSchema = typeof zh_cn;
-const i18n = createI18n<[MessageSchema], 'zh_cn' | 'en_us'>({
-  locale: 'zh_cn',
-  legacy: false,
-  fallbackLocale: 'zh_cn',
+import en from './en.json';
+import zhHans from './zh-Hans.json';
+type MessageSchema = typeof en;
+const i18n = createI18n<[MessageSchema], 'en' | 'zh-Hans'>({
+  locale: 'en',
   messages: {
-    zh_cn: zh_cn,
-    en_us: en_us,
+    en,
+    'zh-Hans': zhHans,
   },
 });
 export default i18n;
