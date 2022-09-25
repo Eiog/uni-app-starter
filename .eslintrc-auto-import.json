@@ -57,6 +57,7 @@
     "onHide": true,
     "onKeyStroke": true,
     "onLaunch": true,
+    "onLoad": true,
     "onLongPress": true,
     "onMounted": true,
     "onRenderTracked": true,

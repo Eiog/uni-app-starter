@@ -58,6 +58,7 @@ declare global {
   const onHide: typeof import('@dcloudio/uni-app')['onHide']
   const onKeyStroke: typeof import('@vueuse/core')['onKeyStroke']
   const onLaunch: typeof import('@dcloudio/uni-app')['onLaunch']
+  const onLoad: typeof import('@dcloudio/uni-app')['onLoad']
   const onLongPress: typeof import('@vueuse/core')['onLongPress']
   const onMounted: typeof import('vue')['onMounted']
   const onRenderTracked: typeof import('vue')['onRenderTracked']

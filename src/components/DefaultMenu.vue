@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import { getCurrentInstance } from 'vue';
+const { proxy } = getCurrentInstance();
 const { darkMode, language } = storeToRefs(useAppStore());
-
 function changeLanguage() {
   language.value = language.value === 'zh_cn' ? 'en_us' : 'zh_cn';
+  proxy.$i18n.locale = language.value === 'zh_cn' ? 'zh-Hans' : 'en';
 }
 </script>
 <template>
-  <div flex-center gap5 mt4>
+  <div flex items-center gap5 mt4>
     <i class="btn i-ri-home-2-line" @click=""></i>
     <i class="btn i-ri-translate" @click="changeLanguage"></i>
     <i

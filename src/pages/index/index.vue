@@ -1,10 +1,8 @@
-<script setup lang="ts">
-import tuiButton from 'thorui/tui-button/tui-button.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <view flex="~ 1 col">
-    <view></view>
+  <view flex="~ 1 col" items-center justify-center>
+    <view>{{ $t('welcome') }}</view>
     <default-menu></default-menu>
   </view>
 </template>

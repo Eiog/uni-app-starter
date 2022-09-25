@@ -25,7 +25,7 @@ export default defineConfig(() => {
         '@vueuse/core',
         'pinia',
         // 小程序特有的生命周期等从这里引入
-        { '@dcloudio/uni-app': ['onLaunch', 'onShow', 'onHide'] },
+        { '@dcloudio/uni-app': ['onLaunch', 'onShow', 'onHide', 'onLoad'] },
       ],
       dirs: ['src/hooks', 'src/stores', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',
@@ -44,13 +44,7 @@ export default defineConfig(() => {
       resolvers: [],
     }),
     uni(),
-    presetAttributifyWechat({
-      nonValuedAttribute: true,
-      classPrefix: 'u-',
-      attributes: [...defaultAttributes],
-    }),
-    transformWeClass({}),
-    process.env.UNI_COMPILER !== 'nvue' ? Unocss() : undefined,
+    Unocss(),
   ];
   return {
     plugins: plugins,

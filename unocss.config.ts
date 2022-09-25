@@ -9,21 +9,21 @@ import {
   transformerVariantGroup,
 } from 'unocss';
 import presetWeapp from 'unocss-preset-weapp';
+import {
+  defaultAttributes,
+  defaultIgnoreNonValuedAttributes,
+  transformerAttributify,
+  transformerClass,
+} from 'unocss-preset-weapp/transformer';
 export default defineConfig({
-  theme: {
-    colors: {},
-  },
   shortcuts: [
     {
-      'flex-center': 'flex items-center justify-center',
-    },
-    {
-      'gradient-bg': 'bg-gradient-to-tr from-#fdfbfb to-#ebedee',
+      'flex-center': 'c-flex c-items-center c-justify-center',
     },
   ],
   presets: [
     presetWeapp({
-      prefix: 'u-',
+      prefix: 'c-',
     }),
     // presetUno(),
     // presetAttributify({}),
@@ -45,5 +45,16 @@ export default defineConfig({
       },
     }),
   ],
-  transformers: [transformerDirectives(), transformerVariantGroup()],
+  transformers: [
+    transformerAttributify({
+      nonValuedAttribute: true,
+      classPrefix: 'c-',
+      attributes: [...defaultAttributes, 'w', 'h'],
+      ignoreNonValuedAttributes: [
+        ...defaultIgnoreNonValuedAttributes,
+        'flex-center',
+      ],
+    }),
+    transformerClass(),
+  ],
 });
