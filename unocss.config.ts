@@ -8,6 +8,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
+import { presetExtra } from 'unocss-preset-extra';
 import presetWeapp from 'unocss-preset-weapp';
 import {
   defaultAttributes,
@@ -18,12 +19,12 @@ import {
 export default defineConfig({
   shortcuts: [
     {
-      'flex-center': 'c-flex c-items-center c-justify-center',
+      'flex-center': 'we-flex we-items-center we-justify-center',
     },
   ],
   presets: [
     presetWeapp({
-      prefix: 'c-',
+      prefix: 'we-',
     }),
     // presetUno(),
     // presetAttributify({}),
@@ -46,9 +47,10 @@ export default defineConfig({
     }),
   ],
   transformers: [
+    transformerDirectives(),
     transformerAttributify({
       nonValuedAttribute: true,
-      classPrefix: 'c-',
+      classPrefix: 'we-',
       attributes: [...defaultAttributes, 'w', 'h'],
       ignoreNonValuedAttributes: [
         ...defaultIgnoreNonValuedAttributes,

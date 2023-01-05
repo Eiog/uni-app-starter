@@ -26,6 +26,7 @@
       ],
     },
     "types": [
+      "unplugin-icons/types/vue",
       "vitest/globals",
       "@dcloudio/types"
     ]
