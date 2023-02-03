@@ -50,6 +50,7 @@
     "pinia": "^2.0.30",
     "pinia-plugin-persistedstate": "^3.0.2",
     "thorui-uni": "^2.0.0",
+    "uni-nutui": "^1.4.6",
     "uview-plus": "^3.1.24",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",

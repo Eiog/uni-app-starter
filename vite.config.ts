@@ -20,6 +20,19 @@ const UviewUiResolver = (): ComponentResolver => {
     },
   };
 };
+const UniNutUiResolver = (): ComponentResolver => {
+  return {
+    type: 'component',
+    resolve: (name: string) => {
+      if (name.match(/^(Nut[A-Z]|nut-[a-z])/)) {
+        const cName = name.slice(3).toLowerCase();
+        return {
+          from: `uni-nutui/components/sky-nutui/packages/__VUE/${cName}/index.vue`,
+        };
+      }
+    },
+  };
+};
 export default defineConfig(() => {
   const plugins = [
     AutoImport({
@@ -50,7 +63,7 @@ export default defineConfig(() => {
       extensions: ['vue'],
       deep: true,
       dts: 'src/typings/components.d.ts',
-      resolvers: [UviewUiResolver()],
+      resolvers: [UviewUiResolver(), UniNutUiResolver()],
     }),
     uni(),
     Unocss(),
