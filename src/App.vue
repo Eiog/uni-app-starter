@@ -10,6 +10,9 @@ onHide(() => {
   console.log('App Hide');
 });
 </script>
+<style lang="scss">
+@import 'uview-plus/index.scss';
+</style>
 <style>
 /* #ifdef H5 */
 body::-webkit-scrollbar,

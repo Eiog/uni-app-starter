@@ -1,9 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import uButton from 'uview-plus/components/u-button/u-button.vue';
+</script>
 
 <template>
   <view flex="~ 1 col" items-center justify-center>
     <view>{{ $t('welcome') }}</view>
-    <div animate>c</div>
+    <u-button type="primary " text="月落"></u-button>
     <default-menu></default-menu>
   </view>
 </template>

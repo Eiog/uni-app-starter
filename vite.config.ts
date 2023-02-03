@@ -4,8 +4,22 @@ import uni from '@dcloudio/vite-plugin-uni';
 import Unocss from 'unocss/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-// https://vitejs.dev/config/
+import type { ComponentResolver } from 'unplugin-vue-components';
 
+// https://vitejs.dev/config/
+const UviewUiResolver = (): ComponentResolver => {
+  return {
+    type: 'component',
+    resolve: (name: string) => {
+      if (name.match(/^(U[A-Z]|u-[a-z])/)) {
+        const cName = name.slice(1).toLowerCase();
+        return {
+          from: `uview-plus/components/u-${cName}/u-${cName}.vue`,
+        };
+      }
+    },
+  };
+};
 export default defineConfig(() => {
   const plugins = [
     AutoImport({
@@ -36,7 +50,7 @@ export default defineConfig(() => {
       extensions: ['vue'],
       deep: true,
       dts: 'src/typings/components.d.ts',
-      resolvers: [],
+      resolvers: [UviewUiResolver()],
     }),
     uni(),
     Unocss(),
@@ -46,7 +60,6 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
-        thorui: 'thorui-uni/lib/thorui', // 路径别名
       },
     },
     server: {
