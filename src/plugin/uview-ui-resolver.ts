@@ -1,4 +1,4 @@
-import type { ComponentResolver } from 'unplugin-vue-components';
+import type { ComponentResolver } from 'unplugin-vue-components'
 
 /**
  * Resolver for Naive UI
@@ -11,7 +11,7 @@ export function UviewUiResolver(): ComponentResolver {
     type: 'component',
     resolve: (name: string) => {
       if (name.match(/^(N[A-Z]|n-[a-z])/))
-        return { name, from: `uview-plus/components/${name}}/${name}.vue` };
+        return { name, from: `uview-plus/components/${name}}/${name}.vue` }
     },
-  };
+  }
 }

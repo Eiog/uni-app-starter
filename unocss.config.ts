@@ -1,21 +1,17 @@
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
   presetTypography,
-  presetUno,
   presetWebFonts,
   transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss';
-import { presetExtra } from 'unocss-preset-extra';
-import presetWeapp from 'unocss-preset-weapp';
+} from 'unocss'
+import presetWeapp from 'unocss-preset-weapp'
 import {
   defaultAttributes,
   defaultIgnoreNonValuedAttributes,
   transformerAttributify,
   transformerClass,
-} from 'unocss-preset-weapp/transformer';
+} from 'unocss-preset-weapp/transformer'
 export default defineConfig({
   shortcuts: [
     {
@@ -33,7 +29,7 @@ export default defineConfig({
       prefix: 'i-',
       scale: 1.2,
       extraProperties: {
-        display: 'inline-block',
+        'display': 'inline-block',
         'vertical-align': 'middle',
       },
     }),
@@ -59,4 +55,4 @@ export default defineConfig({
     }),
     transformerClass(),
   ],
-});
+})

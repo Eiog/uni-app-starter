@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import uni from '@dcloudio/vite-plugin-uni';
-import Unocss from 'unocss/vite';
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import type { ComponentResolver } from 'unplugin-vue-components';
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import uni from '@dcloudio/vite-plugin-uni'
+import Unocss from 'unocss/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import type { ComponentResolver } from 'unplugin-vue-components'
 
 // https://vitejs.dev/config/
 const UviewUiResolver = (): ComponentResolver => {
@@ -12,27 +12,27 @@ const UviewUiResolver = (): ComponentResolver => {
     type: 'component',
     resolve: (name: string) => {
       if (name.match(/^(U[A-Z]|u-[a-z])/)) {
-        const cName = name.slice(1).toLowerCase();
+        const cName = name.slice(1).toLowerCase()
         return {
           from: `uview-plus/components/u-${cName}/u-${cName}.vue`,
-        };
+        }
       }
     },
-  };
-};
+  }
+}
 const UniNutUiResolver = (): ComponentResolver => {
   return {
     type: 'component',
     resolve: (name: string) => {
       if (name.match(/^(Nut[A-Z]|nut-[a-z])/)) {
-        const cName = name.slice(3).toLowerCase();
+        const cName = name.slice(3).toLowerCase()
         return {
           from: `uni-nutui/components/sky-nutui/packages/__VUE/${cName}/index.vue`,
-        };
+        }
       }
     },
-  };
-};
+  }
+}
 export default defineConfig(() => {
   const plugins = [
     AutoImport({
@@ -51,11 +51,7 @@ export default defineConfig(() => {
       ],
       dirs: ['src/hooks', 'src/stores', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',
-      eslintrc: {
-        enabled: true,
-        filepath: './.eslintrc-auto-import.json',
-        globalsPropValue: true,
-      },
+      vueTemplate: true,
     }),
     Components({
       /* options */
@@ -67,9 +63,9 @@ export default defineConfig(() => {
     }),
     uni(),
     Unocss(),
-  ];
+  ]
   return {
-    plugins: plugins,
+    plugins,
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
@@ -85,9 +81,9 @@ export default defineConfig(() => {
         '/api': {
           target: 'https://mock.apifox.cn/m1/1199247-0-default/',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          rewrite: path => path.replace(/^\/api/, ''),
         },
       },
     },
-  };
-});
+  }
+})

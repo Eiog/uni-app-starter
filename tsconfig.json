@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "target": "ESNext",
     "module": "ESNext",
     "lib": [
@@ -19,14 +19,13 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "~/*": [
-        "./src/*"
+        "src/*"
       ],
       "thorui/*": [
         "thorui-uni/lib/thorui/*"
-      ],
+      ]
     },
     "types": [
-      "unplugin-icons/types/vue",
       "vitest/globals",
       "@dcloudio/types"
     ]
@@ -40,10 +39,6 @@
   "exclude": [
     "node_modules",
     "dist"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
   ]
+
 }
