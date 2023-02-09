@@ -5,7 +5,7 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import type { ComponentResolver } from 'unplugin-vue-components'
-
+import Icons from 'unplugin-icons/vite'
 // https://vitejs.dev/config/
 const UviewUiResolver = (): ComponentResolver => {
   return {
@@ -35,6 +35,7 @@ const UniNutUiResolver = (): ComponentResolver => {
 }
 export default defineConfig(() => {
   const plugins = [
+    Icons({ compiler: 'vue3' }),
     AutoImport({
       /* options */
       include: [
