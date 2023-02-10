@@ -12,7 +12,7 @@ const UviewUiResolver = (): ComponentResolver => {
     type: 'component',
     resolve: (name: string) => {
       if (name.match(/^(U[A-Z]|u-[a-z])/)) {
-        const cName = name.slice(1).toLowerCase()
+        const cName = name.slice(1).match(/([A-Z])([a-z]+)/g)?.map(m => m.toLowerCase()).toString().replace(',', '-')
         return {
           from: `uview-plus/components/u-${cName}/u-${cName}.vue`,
         }
@@ -60,6 +60,8 @@ export default defineConfig(() => {
       extensions: ['vue'],
       deep: true,
       dts: 'src/typings/components.d.ts',
+      include: [/[\\/]node_modules[\\/]uni-nutui[\\/]/, /\.vue$/],
+      exclude: [],
       resolvers: [UviewUiResolver(), UniNutUiResolver()],
     }),
     uni(),
