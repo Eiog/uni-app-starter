@@ -11,7 +11,7 @@ const UviewUiResolver = (): ComponentResolver => {
   return {
     type: 'component',
     resolve: (name: string) => {
-      if (name.match(/^(U[A-Z]|u-[a-z])/)) {
+      if (name.match(/^(U[-A-Z]|u-[-a-z])/)) {
         const cName = name.slice(1).match(/([A-Z])([a-z]+)/g)?.map(m => m.toLowerCase()).toString().replace(',', '-')
         return {
           from: `uview-plus/components/u-${cName}/u-${cName}.vue`,
@@ -72,6 +72,8 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
+        '~nutui': resolve(__dirname, './node_modules/uni-nutui/components/sky-nutui/packages/__VUE'),
+        '~uview': resolve(__dirname, './node_modules/uview-plus/components'),
       },
     },
     server: {

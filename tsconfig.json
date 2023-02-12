@@ -23,7 +23,8 @@
       "~/*": [
         "src/*"
       ],
-
+      "~nutui/*":["node_modules/uni-nutui/components/sky-nutui/packages/__VUE/*"],
+      "~uview/*":["node_modules/uview-plus/components/*"]
     },
     "types": [
       "vitest/globals",
