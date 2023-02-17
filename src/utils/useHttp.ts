@@ -7,9 +7,9 @@ BASE_URL = '/'
 // #endif
 // #ifdef MP
 if (process.env.NODE_ENV === 'development')
-  BASE_URL = 'https://mock.apifox.cn/m1/1199247-0-default'
+  BASE_URL = ''
 else
-  BASE_URL = '/'
+  BASE_URL = ''
 
 // #endif
 export const http: (options: UniApp.RequestOptions) => Promise<any> = ({ url, data, header, method, dataType, responseType, sslVerify }) => {
@@ -39,5 +39,6 @@ export const http: (options: UniApp.RequestOptions) => Promise<any> = ({ url, da
     })
   })
 }
-export const get: <REQ = AnyObject, RES = any>(url: string, data: REQ) => Promise<RES> = (url, data) => http({ url, data: data as UniApp.RequestOptions['data'], method: 'GET' })
-export const post: <REQ = AnyObject, RES = any>(url: string, data: REQ) => Promise<RES> = (url, data) => http({ url, data: data as UniApp.RequestOptions['data'], method: 'POST' })
+export const post: <REQ = AnyObject, RES = any>(url: string, data: REQ) => Promise<RES> = (url, data) => {
+  return http({ url, data: { ...data, timestamp: Date.now() } as UniApp.RequestOptions['data'], method: 'POST' })
+}

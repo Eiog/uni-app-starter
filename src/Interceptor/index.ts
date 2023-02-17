@@ -1,22 +1,19 @@
 // request拦截器
 uni.addInterceptor('request', {
   invoke(args: UniApp.RequestOptions) {
-    uni.showLoading({ title: '加载中' })
-    args.header = {
-      ...args.header,
-      token: 'token',
-    }
-    return args
+    uni.showLoading({ title: '请求中', mask: true })
+  },
+  complete() {
+    uni.hideLoading()
+  },
+})
+uni.addInterceptor('navigateTo', {
+  invoke(e) {
+    console.log(e)
   },
   success(res) {
     // eslint-disable-next-line no-console
     console.log(res)
-  },
-  fail() {
-
-  },
-  complete() {
-    uni.hideLoading()
   },
 })
 // 授权拦截器
@@ -74,6 +71,8 @@ const scope: Scope[] = [
 for (const item of scope) {
   uni.addInterceptor(item.method, {
     invoke(res) {
+      console.log(res)
+
       // 打开引导提示
       uni.authorize({
         scope: item.scope,
