@@ -11,13 +11,8 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     DefaultLayout: typeof import('./../layouts/DefaultLayout.vue')['default']
     DefaultMenu: typeof import('./../components/DefaultMenu.vue')['default']
-    NutButton: typeof import('uni-nutui/components/sky-nutui/packages/__VUE/button/index.vue')['default']
-    NutIcon: typeof import('uni-nutui/components/sky-nutui/packages/__VUE/icon/index.vue')['default']
     RouterEntry: typeof import('./../components/RouterEntry.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    UButton: typeof import('uview-plus/components/u-button/u-button.vue')['default']
-    UIcon: typeof import('uview-plus/components/u-icon/u-icon.vue')['default']
-    ULoadingIcon: typeof import('uview-plus/components/u-loading-icon/u-loading-icon.vue')['default']
   }
 }
