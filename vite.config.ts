@@ -1,40 +1,31 @@
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
+import Uni from '@dcloudio/vite-plugin-uni'
+import UniHelperManifest from '@uni-helper/vite-plugin-uni-manifest'
+import UniHelperPages from '@uni-helper/vite-plugin-uni-pages'
+import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
+import UniHelperComponents from '@uni-helper/vite-plugin-uni-components'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import type { ComponentResolver } from 'unplugin-vue-components'
 import Icons from 'unplugin-icons/vite'
+
 // https://vitejs.dev/config/
-const UviewUiResolver = (): ComponentResolver => {
-  return {
-    type: 'component',
-    resolve: (name: string) => {
-      if (name.match(/^(U[-A-Z]|u-[-a-z])/)) {
-        const cName = name.slice(1).match(/([A-Z])([a-z]+)/g)?.map(m => m.toLowerCase()).toString().replace(',', '-')
-        return {
-          from: `uview-plus/components/u-${cName}/u-${cName}.vue`,
-        }
-      }
-    },
-  }
-}
-const UniNutUiResolver = (): ComponentResolver => {
-  return {
-    type: 'component',
-    resolve: (name: string) => {
-      if (name.match(/^(Nut[A-Z]|nut-[a-z])/)) {
-        const cName = name.slice(3).toLowerCase()
-        return {
-          from: `uni-nutui/components/sky-nutui/packages/__VUE/${cName}/index.vue`,
-        }
-      }
-    },
-  }
-}
 export default defineConfig(() => {
   const plugins = [
+    // https://github.com/uni-helper/vite-plugin-uni-manifest
+    UniHelperManifest(),
+    // https://github.com/uni-helper/vite-plugin-uni-pages
+    UniHelperPages(),
+    // https://github.com/uni-helper/vite-plugin-uni-layouts
+    UniHelperLayouts(),
+    // https://github.com/uni-helper/vite-plugin-uni-components
+    UniHelperComponents({
+      dts: 'src/components.d.ts',
+      directoryAsNamespace: true,
+    }),
+    Uni(),
+    Unocss(),
     Icons({ compiler: 'vue3' }),
     AutoImport({
       /* options */
@@ -47,8 +38,8 @@ export default defineConfig(() => {
         'vue',
         '@vueuse/core',
         'pinia',
+        'uni-app',
         // 小程序特有的生命周期等从这里引入
-        { '@dcloudio/uni-app': ['onLaunch', 'onShow', 'onHide', 'onLoad'] },
       ],
       dirs: ['src/hooks', 'src/stores', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',
@@ -63,8 +54,6 @@ export default defineConfig(() => {
       exclude: [],
       resolvers: [],
     }),
-    uni(),
-    Unocss(),
   ]
   return {
     plugins,

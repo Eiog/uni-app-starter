@@ -16,7 +16,6 @@ const vinShow = ref(false)
     <vin-button @click="vinShow = true">
       button
     </vin-button>
-    <default-menu />
     <u-modal :show="uShow" :title="title" :content="content" @confirm="uShow = false" />
     <nut-dialog v-model:visible="nutShow" no-cancel-btn :title="title" :content="content" @ok="nutShow = false" />
     <vin-dialog
@@ -28,3 +27,7 @@ const vinShow = ref(false)
 </template>
 
 <style scoped lang="less"></style>
+
+<route type="home" lang="json">
+  {}
+</route>

@@ -6,6 +6,7 @@ import App from './App.vue'
 import 'uno.css'
 import '@vingogo/uni-ui/lib/style.css'
 import './Interceptor'
+
 export function createApp() {
   const app = createSSRApp(App)
   app.use(store).use(i18n).use(uviewPlus)

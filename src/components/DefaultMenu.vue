@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getCurrentInstance } from 'vue'
+
 const { proxy } = getCurrentInstance()
 const { darkMode, language } = storeToRefs(useAppStore())
 function changeLanguage() {

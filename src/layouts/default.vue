@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div wfull hfull flex-center bg="white dark:gray-900">
-    <div max-w-xl hfull flex-center select-none flex="col">
+  <div wh-full flex-center bg="white dark:gray-900">
+    <div max-w-xl hfull flex-col-center select-none>
       <slot />
       <default-menu />
     </div>
