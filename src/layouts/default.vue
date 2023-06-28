@@ -2,7 +2,7 @@
 
 <template>
   <div wh-full flex-center bg="white dark:gray-900">
-    <div max-w-xl hfull flex-col-center select-none>
+    <div hfull max-w-xl flex-col-center select-none>
       <slot />
       <default-menu />
     </div>

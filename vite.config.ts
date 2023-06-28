@@ -7,8 +7,8 @@ import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniHelperComponents from '@uni-helper/vite-plugin-uni-components'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
+import { AnoResolver } from 'ano-ui'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -21,8 +21,10 @@ export default defineConfig(() => {
     UniHelperLayouts(),
     // https://github.com/uni-helper/vite-plugin-uni-components
     UniHelperComponents({
-      dts: 'src/components.d.ts',
+      dts: 'src/typings/components.d.ts',
       directoryAsNamespace: true,
+      include: [/\.vue$/, /\.vue\?vue/],
+      resolvers: [AnoResolver()],
     }),
     Uni(),
     Unocss(),
@@ -37,22 +39,12 @@ export default defineConfig(() => {
       imports: [
         'vue',
         '@vueuse/core',
-        'pinia',
         'uni-app',
         // 小程序特有的生命周期等从这里引入
       ],
-      dirs: ['src/hooks', 'src/stores', 'src/utils'],
+      dirs: ['src/hooks', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',
       vueTemplate: true,
-    }),
-    Components({
-      /* options */
-      dirs: ['src/components', 'src/layouts'],
-      extensions: ['vue'],
-      deep: true,
-      dts: 'src/typings/components.d.ts',
-      exclude: [],
-      resolvers: [],
     }),
   ]
   return {
@@ -60,12 +52,10 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
-        '~nutui': resolve(__dirname, './node_modules/uni-nutui/components/sky-nutui/packages/__VUE'),
-        '~uview': resolve(__dirname, './node_modules/uview-plus/components'),
       },
     },
     server: {
-      port: 9999,
+      port: 3900,
       host: true, // host设置为true才可以使用network的形式，以ip访问项目
       open: false, // 自动打开浏览器
       cors: true, // 跨域设置允许

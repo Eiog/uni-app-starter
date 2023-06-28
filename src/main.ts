@@ -1,15 +1,11 @@
 import { createSSRApp } from 'vue'
-import uviewPlus from 'uview-plus'
-import store from './stores'
-import i18n from './i18n'
 import App from './App.vue'
-import 'uno.css'
-import '@vingogo/uni-ui/lib/style.css'
 import './Interceptor'
+import { useModules } from '~/modules'
 
 export function createApp() {
   const app = createSSRApp(App)
-  app.use(store).use(i18n).use(uviewPlus)
+  useModules(app)
   return {
     app,
   }

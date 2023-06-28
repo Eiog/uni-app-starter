@@ -22,10 +22,10 @@ export default defineUniPages({
     navigationStyle: 'custom',
   },
   tabBar: {
-    backgroundColor: '@tabBgColor',
+    backgroundColor: '#FFF',
     borderStyle: '@tabBorderStyle',
-    color: '@tabFontColor',
-    selectedColor: '@tabSelectedColor',
+    color: '#333',
+    selectedColor: '#000',
     list: [
       {
         pagePath: 'pages/index',

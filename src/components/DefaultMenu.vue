@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import type { ComponentInternalInstance } from 'vue'
 import { getCurrentInstance } from 'vue'
 
-const { proxy } = getCurrentInstance()
+const { proxy } = getCurrentInstance() as ComponentInternalInstance
 const { darkMode, language } = storeToRefs(useAppStore())
 function changeLanguage() {
   language.value = language.value === 'zh_cn' ? 'en_us' : 'zh_cn'
-  proxy.$i18n.locale = language.value === 'zh_cn' ? 'zh-Hans' : 'en'
+  proxy!.$i18n.locale = language.value === 'zh_cn' ? 'zh-Hans' : 'en'
 }
 </script>
 
 <template>
-  <div flex items-center gap5 mt4>
+  <div mt4 flex items-center gap5>
     <i class="btn i-ri-home-2-line" />
     <i class="btn i-ri-translate" @click="changeLanguage" />
     <i

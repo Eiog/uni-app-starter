@@ -9,6 +9,7 @@ uni.addInterceptor('request', {
 })
 uni.addInterceptor('navigateTo', {
   invoke(e) {
+    // eslint-disable-next-line no-console
     console.log(e)
   },
   success(res) {
@@ -71,6 +72,7 @@ const scope: Scope[] = [
 for (const item of scope) {
   uni.addInterceptor(item.method, {
     invoke(res) {
+      // eslint-disable-next-line no-console
       console.log(res)
 
       // 打开引导提示
