@@ -5,28 +5,28 @@ import UniHelperManifest from '@uni-helper/vite-plugin-uni-manifest'
 import UniHelperPages from '@uni-helper/vite-plugin-uni-pages'
 import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniHelperComponents from '@uni-helper/vite-plugin-uni-components'
+import UniMiddleware from '@uni-helper/vite-plugin-uni-middleware'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import { AnoResolver } from 'ano-ui'
 
+// https://uni-helper.js.org/uni-use
+// https://uni-helper.js.org/axios-adapter
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   const plugins = [
-    // https://github.com/uni-helper/vite-plugin-uni-manifest
-    UniHelperManifest(),
-    // https://github.com/uni-helper/vite-plugin-uni-pages
-    UniHelperPages(),
-    // https://github.com/uni-helper/vite-plugin-uni-layouts
-    UniHelperLayouts(),
-    // https://github.com/uni-helper/vite-plugin-uni-components
+    UniHelperManifest(), // https://uni-helper.js.org/vite-plugin-uni-manifest
+    UniHelperPages(), // https://uni-helper.js.org/vite-plugin-uni-pages
+    UniHelperLayouts(), // https://uni-helper.js.org/vite-plugin-uni-layouts
     UniHelperComponents({
       dts: 'src/typings/components.d.ts',
       directoryAsNamespace: true,
       include: [/\.vue$/, /\.vue\?vue/],
       resolvers: [AnoResolver()],
-    }),
+    }), // https://uni-helper.js.org/vite-plugin-uni-components
     Uni(),
+    UniMiddleware(), // https://uni-helper.js.org/vite-plugin-uni-middleware
     Unocss(),
     Icons({ compiler: 'vue3' }),
     AutoImport({
@@ -40,7 +40,6 @@ export default defineConfig(() => {
         'vue',
         '@vueuse/core',
         'uni-app',
-        // 小程序特有的生命周期等从这里引入
       ],
       dirs: ['src/hooks', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',

@@ -26,5 +26,7 @@ const vinShow = ref(false)
 <style scoped lang="less"></style>
 
 <route type="home" lang="json">
-  {}
+  {
+    "middleware": ["auth"]
+  }
 </route>

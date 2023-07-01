@@ -11,7 +11,10 @@
   "pages": [
     {
       "path": "pages/index",
-      "type": "home"
+      "type": "home",
+      "middleware": [
+        "auth"
+      ]
     },
     {
       "path": "pages/about",
