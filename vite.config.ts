@@ -10,6 +10,7 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import { AnoResolver } from 'ano-ui'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // https://uni-helper.js.org/uni-use
 // https://uni-helper.js.org/axios-adapter
@@ -45,6 +46,13 @@ export default defineConfig(() => {
       dts: 'src/typings/auto-import.d.ts',
       vueTemplate: true,
     }),
+    VueI18nPlugin({
+      runtimeOnly: true,
+      compositionOnly: true,
+      fullInstall: true,
+      include: resolve(__dirname, './src/locales/**'),
+    }), // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
+
   ]
   return {
     plugins,
