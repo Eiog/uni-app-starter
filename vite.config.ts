@@ -41,8 +41,10 @@ export default defineConfig(() => {
         'vue',
         '@vueuse/core',
         'uni-app',
+        'vue-i18n',
+        'pinia',
       ],
-      dirs: ['src/hooks', 'src/utils'],
+      dirs: ['src/hooks', 'src/composables', 'src/stores', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',
       vueTemplate: true,
     }),
@@ -59,6 +61,7 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js',
       },
     },
     server: {

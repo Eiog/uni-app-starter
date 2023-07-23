@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import type { ComponentInternalInstance } from 'vue'
-import { getCurrentInstance } from 'vue'
-
-const { proxy } = getCurrentInstance() as ComponentInternalInstance
 const { darkMode, language } = storeToRefs(useAppStore())
 function changeLanguage() {
   language.value = language.value === 'zh_cn' ? 'en_us' : 'zh_cn'
-  proxy!.$i18n.locale = language.value === 'zh_cn' ? 'zh-Hans' : 'en'
 }
 </script>
 

@@ -5,9 +5,6 @@ export default defineUniPages({
     autoscan: true,
     custom: {
       '^vin-(.*)': '@vingogo/uni-ui/lib/components/$1/index.vue',
-      'nut-(.*)?-(.*)': 'uni-nutui/components/sky-nutui/packages/__VUE/$1$2/index.vue',
-      'nut-(.*)': 'uni-nutui/components/sky-nutui/packages/__VUE/$1/index.vue',
-      '^u-(.*)': 'uview-plus/components/u-$1/u-$1.vue',
     },
   },
   pages: [],
