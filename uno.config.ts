@@ -13,6 +13,7 @@ import {
 } from 'unocss'
 
 import { presetApplet, presetRemRpx, transformerApplet, transformerAttributify } from 'unocss-applet'
+import { presetAno } from 'ano-ui'
 
 import { isH5, isMp } from '@uni-helper/uni-env'
 
@@ -79,6 +80,7 @@ export default defineConfig({
       },
     }),
     ...presets,
+    presetAno(),
   ],
   transformers: [
     transformerDirectives(),

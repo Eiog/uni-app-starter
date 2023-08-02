@@ -10,10 +10,14 @@ const vinShow = ref(false)
 <template>
   <view flex="~ 1 col" items-center justify-center>
     <view>{{ t('Welcome') }}</view>
-    <vin-button @click="vinShow = true">
-      button
-    </vin-button>
-    <vin-dialog
+    <VinButton @click="vinShow = true">
+      VinButton
+    </VinButton>
+    <AButton type="success">
+      AnoButton
+    </AButton>
+    <UniRate :value="5" />
+    <VinDialog
       v-model:visible="vinShow"
       no-cancel-btn
       :title="title" :content="content" @ok="nutShow = false"

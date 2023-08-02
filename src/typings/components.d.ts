@@ -9,7 +9,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AButton: typeof import('ano-ui/components/AButton/AButton.vue')['default']
     DefaultMenu: typeof import('./../components/DefaultMenu.vue')['default']
     RouterEntry: typeof import('./../components/RouterEntry.vue')['default']
+    UniButton: typeof import('@dcloudio/uni-ui/lib/uni-button/uni-button.vue')['default']
+    UniIcons: typeof import('@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue')['default']
+    UniRate: typeof import('@dcloudio/uni-ui/lib/uni-rate/uni-rate.vue')['default']
   }
 }

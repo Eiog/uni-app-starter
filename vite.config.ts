@@ -10,6 +10,7 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import { AnoResolver } from 'ano-ui'
+import { UniUIResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // https://uni-helper.js.org/uni-use
@@ -24,7 +25,7 @@ export default defineConfig(() => {
       dts: 'src/typings/components.d.ts',
       directoryAsNamespace: true,
       include: [/\.vue$/, /\.vue\?vue/],
-      resolvers: [AnoResolver()],
+      resolvers: [AnoResolver(), UniUIResolver()],
     }), // https://uni-helper.js.org/vite-plugin-uni-components
     Uni(),
     UniMiddleware(), // https://uni-helper.js.org/vite-plugin-uni-middleware
