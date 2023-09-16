@@ -52,7 +52,7 @@ export default defineManifestConfig({
   'quickapp': {},
   /* 小程序特有相关 */
   'mp-weixin': {
-    appid: '',
+    appid: 'wx1bb89611e49fa9b7',
     setting: {
       urlCheck: false,
     },

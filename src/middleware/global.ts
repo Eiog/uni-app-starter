@@ -1,7 +1,6 @@
 import type { MiddlewareRuntime } from '../../plugin/vite-plugin-uni-middleware-runtime'
 
 export default ((to, from) => {
-  const isLogin = uni.getStorageSync('isLogin')
-  if (!isLogin)
-    return '/pages/login'
+  // eslint-disable-next-line no-console
+  console.log('global', to, from)
 }) as MiddlewareRuntime

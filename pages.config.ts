@@ -4,10 +4,10 @@ export default defineUniPages({
   easycom: {
     autoscan: true,
     custom: {
-      '^vin-(.*)': '@vingogo/uni-ui/lib/components/$1/index.vue',
     },
   },
   pages: [],
+  middleware: ['global'],
   globalStyle: {
     backgroundColor: '@bgColor',
     backgroundColorBottom: '@bgColorBottom',
@@ -16,7 +16,7 @@ export default defineUniPages({
     navigationBarBackgroundColor: '#000000',
     navigationBarTextStyle: '@navTxtStyle',
     navigationBarTitleText: 'Vitess-Uni',
-    navigationStyle: 'custom',
+    navigationStyle: 'default',
   },
   tabBar: {
     backgroundColor: '#FFF',
