@@ -15,10 +15,18 @@ function toAuth() {
     <NutButton @click="toAuth">
       Auth
     </NutButton>
+    <div class="box">
+      Box
+    </div>
   </div>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.box{
+  width:375px;
+  background:red;
+}
+</style>
 
 <route type="home" lang="json">
 {

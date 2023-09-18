@@ -11,6 +11,8 @@ import Icons from 'unplugin-icons/vite'
 import { AnoResolver } from 'ano-ui'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { NutResolver } from 'nutui-uniapp'
+import postcssPresetEnv from 'postcss-preset-env'
+import px2rpx from 'postcss-pxtorpx-pro'
 import UniMiddleware from './plugin/vite-plugin-uni-middleware'
 import { VinUIResolver } from './plugin/vin-ui-resolver'
 import { VitePluginMock } from './plugin/vite-plugin-mock'
@@ -91,6 +93,15 @@ export default defineConfig(({ command, mode }) => {
         scss: {
           additionalData: '@import "nutui-uniapp/styles/variables.scss";',
         },
+      },
+      postcss: {
+        plugins: [
+          postcssPresetEnv(),
+          px2rpx({
+            replace: false,
+            transform: x => 2 * x,
+          }),
+        ],
       },
     },
   }

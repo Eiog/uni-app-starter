@@ -9,10 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AButton: typeof import('ano-ui/components/AButton/AButton.vue')['default']
     DefaultMenu: typeof import('./../components/DefaultMenu.vue')['default']
     NutButton: typeof import('nutui-uniapp/components/button/button.vue')['default']
-    VinButton: typeof import('@vingogo/uni-ui/lib/components/button/index.vue')['default']
-    VinIcon: typeof import('@vingogo/uni-ui/lib/components/icon/index.vue')['default']
   }
 }
