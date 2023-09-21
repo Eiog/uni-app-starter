@@ -16,6 +16,7 @@ import px2rpx from 'postcss-pxtorpx-pro'
 import UniMiddleware from './plugin/vite-plugin-uni-middleware'
 import { VinUIResolver } from './plugin/vin-ui-resolver'
 import { VitePluginMock } from './plugin/vite-plugin-mock'
+import { WotDesignResolver } from './plugin/wot-design-resolver'
 
 // https://uni-helper.js.org/uni-use
 // https://uni-helper.js.org/axios-adapter
@@ -31,7 +32,9 @@ export default defineConfig(({ command, mode }) => {
       dts: 'src/typings/components.d.ts',
       directoryAsNamespace: true,
       include: [/\.vue$/, /\.vue\?vue/],
-      resolvers: [AnoResolver(), NutResolver(), VinUIResolver()],
+      resolvers: [AnoResolver(), NutResolver(), VinUIResolver(), WotDesignResolver()],
+      // https://wot-design-uni.cn/
+      // https://ano-ui.vercel.app/
     }), // https://uni-helper.js.org/vite-plugin-uni-components
     Uni(),
     UniMiddleware(), // https://uni-helper.js.org/vite-plugin-uni-middleware

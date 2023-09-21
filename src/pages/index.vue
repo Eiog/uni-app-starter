@@ -18,6 +18,20 @@ function toAuth() {
     <div class="box">
       Box
     </div>
+    <div class="flex-col-center gap-3">
+      <NutButton type="info">
+        NutButton
+      </NutButton>
+      <AButton type="info">
+        AnoButton
+      </AButton>
+      <VinButton type="info">
+        VinButton
+      </VinButton>
+      <WdButton type="info">
+        WdButton
+      </WdButton>
+    </div>
   </div>
 </template>
 
