@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     AButton: typeof import('ano-ui/components/AButton/AButton.vue')['default']
     DefaultMenu: typeof import('./../components/DefaultMenu.vue')['default']
     NutButton: typeof import('nutui-uniapp/components/button/button.vue')['default']
+    NutLoadingPage: typeof import('nutui-uniapp/components/loadingpage/loadingpage.vue')['default']
+    NutToast: typeof import('nutui-uniapp/components/toast/toast.vue')['default']
     VinButton: typeof import('@vingogo/uni-ui/lib/components/button/index.vue')['default']
     VinIcon: typeof import('@vingogo/uni-ui/lib/components/icon/index.vue')['default']
     WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']

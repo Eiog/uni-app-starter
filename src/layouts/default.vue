@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import page from './page.vue'
+</script>
 
 <template>
-  <div class="flex-center" />
-  <slot />
+  <page>
+    <slot />
+  </page>
 </template>
 
 <style scoped lang="less"></style>
