@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { ToastInst } from 'nutui-uniapp'
+import type { DialogInst, NotifyInst, ToastInst } from 'nutui-uniapp'
 
 interface MenuButtonBoundingClientRect {
   width: number
@@ -18,6 +18,8 @@ export const useAppStore = defineStore(
     watch(language, language => (locale.value = language))
     const loading = ref(false)
     const toastRef = ref<ToastInst>()
+    const notifyRef = ref<NotifyInst >()
+    const dialogRef = ref<DialogInst>()
     const statusBarHeight = ref(0)
     const menuButtonBounding = ref<MenuButtonBoundingClientRect>()
     const customBarHeight = computed(
@@ -33,12 +35,33 @@ export const useAppStore = defineStore(
       customBarHeight,
       loading,
       toastRef,
+      notifyRef,
+      dialogRef,
+
     }
   },
   {
     persist: {
       key: '__app__',
       paths: [''],
+      storage: {
+        setItem: (key, value) => {
+          try {
+            return uni.setStorageSync(key, value)
+          }
+          catch (error) {
+            return false
+          }
+        },
+        getItem: (key) => {
+          try {
+            return uni.getStorageSync(key)
+          }
+          catch (error) {
+            return false
+          }
+        },
+      },
     },
   },
 )

@@ -103,6 +103,7 @@ export default defineConfig(({ command, mode }) => {
           px2rpx({
             replace: false,
             transform: x => 2 * x,
+            exclude: 'node_modules',
           }),
         ],
       },
