@@ -16,3 +16,9 @@ function login() {
 <style scoped lang='less'>
 
 </style>
+
+<route lang="json">
+  {
+    "name":"login"
+  }
+  </route>

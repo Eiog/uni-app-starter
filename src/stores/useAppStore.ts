@@ -13,6 +13,7 @@ export const useAppStore = defineStore(
   'appStore',
   () => {
     const darkMode = ref(false)
+    const isLogin = ref(false)
     const { locale } = useI18n()
     const language = ref<'zh_cn' | 'en_us'>('zh_cn')
     watch(language, language => (locale.value = language))
@@ -37,7 +38,7 @@ export const useAppStore = defineStore(
       toastRef,
       notifyRef,
       dialogRef,
-
+      isLogin,
     }
   },
   {

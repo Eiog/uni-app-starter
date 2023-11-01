@@ -13,7 +13,6 @@ import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { NutResolver } from 'nutui-uniapp'
 import postcssPresetEnv from 'postcss-preset-env'
 import px2rpx from 'postcss-pxtorpx-pro'
-import UniMiddleware from './plugin/vite-plugin-uni-middleware'
 import { VinUIResolver } from './plugin/vin-ui-resolver'
 import { VitePluginMock } from './plugin/vite-plugin-mock'
 import { WotDesignResolver } from './plugin/wot-design-resolver'
@@ -37,7 +36,7 @@ export default defineConfig(({ command, mode }) => {
       // https://ano-ui.vercel.app/
     }), // https://uni-helper.js.org/vite-plugin-uni-components
     Uni(),
-    UniMiddleware(), // https://uni-helper.js.org/vite-plugin-uni-middleware
+    // UniMiddleware(), // https://uni-helper.js.org/vite-plugin-uni-middleware
 
     Unocss(),
     Icons({ compiler: 'vue3' }),
@@ -54,6 +53,10 @@ export default defineConfig(({ command, mode }) => {
         'uni-app',
         'vue-i18n',
         'pinia',
+        {
+          from: 'uni-mini-router',
+          imports: ['createRouter', 'useRouter', 'useRoute'],
+        },
       ],
       dirs: ['src/hooks', 'src/composables', 'src/stores', 'src/utils'],
       dts: 'src/typings/auto-import.d.ts',

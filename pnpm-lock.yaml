@@ -196,6 +196,12 @@ devDependencies:
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
+  uni-mini-router:
+    specifier: ^0.1.4
+    version: 0.1.4
+  uni-parse-pages:
+    specifier: ^0.0.1
+    version: 0.0.1
   unocss:
     specifier: ^0.56.0
     version: 0.56.0(postcss@8.4.30)(vite@4.1.4)
@@ -12317,6 +12323,14 @@ packages:
       defu: 6.1.2
       jiti: 1.20.0
       mlly: 1.4.2
+    dev: true
+
+  /uni-mini-router@0.1.4:
+    resolution: {integrity: sha512-WC77/Zht6grjmAKhjBRgrzlx+zijNLva1Nkh5385xXzww5BC1gbDoTj+Vam54aoziE1f0xUrMNWGYT2WjhRNMw==}
+    dev: true
+
+  /uni-parse-pages@0.0.1:
+    resolution: {integrity: sha512-OyuNFo/nCw7mnZnrtTYi/C12uWxmK7FczrxRATZETCh7j23uk1kOxEWVD4BXRSjif7YJg0ZPYQE4xBWqxUMHAw==}
     dev: true
 
   /unicode-canonical-property-names-ecmascript@2.0.0:

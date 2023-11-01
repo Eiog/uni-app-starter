@@ -5,12 +5,11 @@ import { createI18n } from 'vue-i18n'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 import { createPinia } from 'pinia'
 import { createPersistedState } from 'pinia-plugin-persistedstate'
-import { createNavigationGuardPlugin } from '../plugin/vite-plugin-uni-middleware-runtime'
 import App from './App.vue'
+import router from './router'
 
 export function createApp() {
   const app = createSSRApp(App)
-  const guard = createNavigationGuardPlugin()
   const i18n = createI18n({
     locale: 'en_us',
     legacy: false,
@@ -20,8 +19,7 @@ export function createApp() {
   const pinia = createPinia().use(createPersistedState())
   app.use(pinia)
   app.use(i18n)
-  app.use(guard)
-
+  app.use(router)
   return {
     app,
   }

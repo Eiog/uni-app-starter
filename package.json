@@ -109,6 +109,8 @@
     "simple-git-hooks": "^2.9.0",
     "taze": "^0.11.2",
     "typescript": "^5.2.2",
+    "uni-mini-router": "^0.1.4",
+    "uni-parse-pages": "^0.0.1",
     "unocss": "^0.56.0",
     "unocss-applet": "^0.5.5",
     "unocss-preset-extra": "^0.5.2",

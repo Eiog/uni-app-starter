@@ -6,7 +6,12 @@
   "pages": [
     {
       "path": "pages/index",
-      "type": "home"
+      "type": "home",
+      "name": "index",
+      "auth": true,
+      "meta": {
+        "auth": true
+      }
     },
     {
       "path": "pages/about",
@@ -21,7 +26,8 @@
     },
     {
       "path": "pages/login",
-      "type": "page"
+      "type": "page",
+      "name": "login"
     }
   ],
   "middleware": [

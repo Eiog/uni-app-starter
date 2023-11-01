@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const router = useRouter()
 get('/info').then((res) => {
   // eslint-disable-next-line no-console
   console.log(res)
 })
 function toAuth() {
-  uni.navigateTo({ url: '/pages/auth' })
+  router.push('/pages/auth')
 }
 </script>
 
@@ -44,6 +45,10 @@ function toAuth() {
 
 <route type="home" lang="json">
 {
-
+  "name":"index",
+  "auth":true,
+  "meta":{
+    "auth":true
+  }
 }
 </route>
