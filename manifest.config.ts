@@ -2,7 +2,7 @@ import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest'
 
 export default defineManifestConfig({
   'name': 'uni-app-starter',
-  'appid': '',
+  'appid': '__UNI__3F6C36D',
   'description': '',
   'versionName': '1.0.0',
   'versionCode': '100',

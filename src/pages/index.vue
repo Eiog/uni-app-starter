@@ -23,9 +23,6 @@ function toAuth() {
       <NutButton type="info">
         NutButton
       </NutButton>
-      <AButton type="info">
-        AnoButton
-      </AButton>
       <VinButton type="info">
         VinButton
       </VinButton>
