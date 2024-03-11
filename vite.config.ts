@@ -34,6 +34,9 @@ export default defineConfig(({ command, mode }) => {
     ],
     clearScreen: true,
     base: VITE_BASE ?? '/',
+    build: {
+      sourcemap: true,
+    },
     server: {
       port: Number(VITE_DEV_PORT),
       host: true, // host设置为true才可以使用network的形式，以ip访问项目
