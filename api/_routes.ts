@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+// eslint-disable-next-line ts/ban-ts-comment
 // @ts-nocheck
 import { Router } from 'express'
 import hello from './hello.ts'

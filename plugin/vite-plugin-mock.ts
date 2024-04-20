@@ -1,11 +1,12 @@
 import { readdirSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import process from 'node:process'
 import type { Plugin } from 'vite'
 import express from 'express'
 
 import routes from '../api/_routes'
 
-export function VitePluginMock(options?: { prefix?: string; dirPath?: string }): Plugin {
+export function VitePluginMock(options?: { prefix?: string, dirPath?: string }): Plugin {
   const { prefix = '/api', dirPath = 'api' } = options || {}
   const app = express()
   app.use(express.json())
@@ -15,7 +16,7 @@ export function VitePluginMock(options?: { prefix?: string; dirPath?: string }):
   const routesImports = routesPath.map(m => `import ${m.replace('.ts', '')} from './${m}'`).join('\n')
   const routesFunc = routesPath.map(m => `router.all('/${m.replace('.ts', '')}', ${m.replace('.ts', '')})`).join('\n')
 
-  const routesFile = `/* eslint-disable @typescript-eslint/ban-ts-comment */
+  const routesFile = `// eslint-disable-next-line ts/ban-ts-comment
 // @ts-nocheck
 import { Router } from 'express'
 ${routesImports}

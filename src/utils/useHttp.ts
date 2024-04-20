@@ -1,9 +1,14 @@
+import process from 'node:process'
 import un from '@uni-helper/uni-network'
 import type { UnConfig, UnError, UnInstance, UnResponse } from '@uni-helper/uni-network'
 
 let basePrefix = import.meta.env.VITE_API_BASE_PREFIX || ''
 // #ifndef H5
-basePrefix = import.meta.env.VITE_API_BASE_URL || ''
+if (process.env.NODE_ENV === 'development')
+  basePrefix = import.meta.env.VITE_API_BASE_URL_DEV || ''
+else
+  basePrefix = import.meta.env.VITE_API_BASE_URL || ''
+
 // #endif
 
 // 创建实例

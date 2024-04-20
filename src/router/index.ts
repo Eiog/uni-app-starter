@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createRouter } from 'uni-mini-router'
 import pagesJsonToRoutes from 'uni-parse-pages'
 import pagesJson from '../pages.json'
@@ -23,7 +24,7 @@ router.beforeEach((to, from, next) => {
   // }
   next()
 })
-router.afterEach((to, from) => {
+router.afterEach(() => {
   console.log('afterEach')
 
   // const { isLogin } = useAppStore()

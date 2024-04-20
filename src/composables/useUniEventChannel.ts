@@ -1,6 +1,5 @@
 import { getCurrentInstance } from 'vue'
 
-type event = 'emit' | 'off' | 'on' | 'once'
 export function useUniEventChannel() {
   const $this = getCurrentInstance()!.proxy as any
   const eventChannel = $this.getOpenerEventChannel()

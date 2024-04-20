@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import process from 'node:process'
 import type { PluginOption } from 'vite'
 
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'

@@ -1,7 +1,7 @@
 declare module 'uview-plus'{
-  export type $Refs = {
-    uToast:{
-      show:()=>void
+  export interface $Refs {
+    uToast: {
+      show: () => void
     }
   }
 }

@@ -1,7 +1,7 @@
 import type { AttributifyAttributes } from '@unocss/preset-attributify'
 
 declare module '@vue/runtime-dom' {
-    interface SVGAttributes extends AttributifyAttributes {
+  interface SVGAttributes extends AttributifyAttributes {
 
-    }
+  }
 }

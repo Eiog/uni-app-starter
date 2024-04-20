@@ -26,7 +26,8 @@ export const useAppStore = defineStore(
     const customBarHeight = computed(
       () => !menuButtonBounding.value
         ? 0
-        : menuButtonBounding.value.bottom + menuButtonBounding.value.top - statusBarHeight.value)
+        : menuButtonBounding.value.bottom + menuButtonBounding.value.top - statusBarHeight.value,
+    )
 
     return {
       language,

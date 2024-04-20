@@ -1,7 +1,0 @@
-{
-  "extends": ["@unocss","@eiog"],
-  "rules": {
-    "no-console":"warn",
-    "eol-last":"warn"
-  }
-}
