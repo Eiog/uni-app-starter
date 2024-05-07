@@ -1,11 +1,24 @@
 <script setup lang="ts">
-import page from './page.vue'
+const { darkMode } = useTheme()
 </script>
 
 <template>
-  <page>
-    <slot />
-  </page>
+  <div :class="darkMode ? 'dark' : 'light'">
+    <NutUiProvider>
+      <WdUiProvider>
+        <VinUiProvider>
+          <div class="flex-col">
+            <div class="flex gap-[10px] p-[10px]">
+              <BackToHome class="m-r-auto" />
+              <ToggleLanguage />
+              <ToggleDarkMode />
+            </div>
+            <slot />
+          </div>
+        </VinUiProvider>
+      </WdUiProvider>
+    </NutUiProvider>
+  </div>
 </template>
 
 <style scoped lang="less"></style>

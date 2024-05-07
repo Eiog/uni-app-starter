@@ -37,6 +37,9 @@ export default defineConfig(async ({ mode }) => {
     build: {
       sourcemap: false,
     },
+    optimizeDeps: {
+      exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['wot-design-uni'] : [],
+    },
     server: {
       port: Number(VITE_DEV_PORT),
       host: true, // host设置为true才可以使用network的形式，以ip访问项目
@@ -66,7 +69,7 @@ export default defineConfig(async ({ mode }) => {
       },
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "nutui-uniapp/styles/variables.scss";',
+          additionalData: '@import "nutui-uniapp/styles/variables.scss"; @import "@vingogo/uni-ui/lib/styles/variables.scss";',
         },
       },
       postcss: {

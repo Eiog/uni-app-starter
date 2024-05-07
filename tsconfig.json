@@ -12,7 +12,10 @@
       "@dcloudio/types",
       "unplugin-icons/types/vue",
       "@uni-helper/uni-app-types",
-      "@intlify/unplugin-vue-i18n/messages"
+      "@intlify/unplugin-vue-i18n/messages",
+      "wot-design-uni/global.d.ts",
+      "nutui-uniapp/global.d.ts",
+      "@vingogo/uni-ui/lib/types/index.d.ts"
     ]
   },
   "include": [
@@ -23,7 +26,7 @@
     "src/**/*.vue"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules/**",
     "dist"
   ]
 

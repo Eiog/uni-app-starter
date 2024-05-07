@@ -13,7 +13,6 @@ import {
 } from 'unocss'
 
 import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
-import { presetAno } from 'ano-ui'
 import { presetUni } from '@uni-helper/unocss-preset-uni'
 import { isH5, isMp } from '@uni-helper/uni-env'
 
@@ -24,7 +23,6 @@ const darkMode = isH5 ? 'class' : 'media'
 if (isMp) {
   presets.push(presetApplet({ dark: darkMode }) as Preset)
   presets.push(presetRemRpx())
-  presets.push(presetAno())
   presets.push(presetUni())
   transformers.push(transformerAttributify({ ignoreAttributes: ['block', 'fixed'] }))
 }

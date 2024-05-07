@@ -8,26 +8,13 @@
       "path": "pages/index",
       "type": "home",
       "name": "index",
-      "auth": true,
       "meta": {
-        "auth": true
+        "requiredAuth": true
       }
     },
     {
       "path": "pages/about",
       "type": "page"
-    },
-    {
-      "path": "pages/auth",
-      "type": "page",
-      "middleware": [
-        "auth"
-      ]
-    },
-    {
-      "path": "pages/login",
-      "type": "page",
-      "name": "login"
     }
   ],
   "middleware": [
