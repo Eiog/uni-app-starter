@@ -10,6 +10,7 @@ import postcssPresetEnv from 'postcss-preset-env'
 import px2rpx from 'postcss-pxtorpx-pro'
 import { VitePluginMock } from './plugin/vite-plugin-mock'
 import { VitePluginAutoImport, VitePluginComponents, VitePluginI18n } from './config'
+import { VitePluginUniVueUsePolyfill } from './plugin/vite-plugin-uni-vueuse-polyfill'
 
 // https://uni-helper.js.org/uni-use
 // https://uni-helper.js.org/axios-adapter
@@ -31,6 +32,7 @@ export default defineConfig(async ({ mode }) => {
       ...VitePluginComponents(),
       ...VitePluginI18n(),
       Uni(),
+      VitePluginUniVueUsePolyfill(),
     ],
     clearScreen: true,
     base: VITE_BASE ?? '/',
@@ -59,6 +61,7 @@ export default defineConfig(async ({ mode }) => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
+        '~uni': resolve(__dirname, './src/uni_modules'), // 路径别名
         'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js',
       },
     },

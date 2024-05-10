@@ -195,6 +195,7 @@ declare global {
   const useDocumentVisibility: typeof import('@vueuse/core')['useDocumentVisibility']
   const useDraggable: typeof import('@vueuse/core')['useDraggable']
   const useDropZone: typeof import('@vueuse/core')['useDropZone']
+  const useEcharts: typeof import('./src/composables/useEcharts')['default']
   const useElementBounding: typeof import('@vueuse/core')['useElementBounding']
   const useElementByPoint: typeof import('@vueuse/core')['useElementByPoint']
   const useElementHover: typeof import('@vueuse/core')['useElementHover']
@@ -300,6 +301,7 @@ declare global {
   const useToString: typeof import('@vueuse/core')['useToString']
   const useToggle: typeof import('@vueuse/core')['useToggle']
   const useTransition: typeof import('@vueuse/core')['useTransition']
+  const useUniElementSize: typeof import('./src/composables/useUniElementSize')['useUniElementSize']
   const useUniEventChannel: typeof import('./src/composables/useUniEventChannel')['useUniEventChannel']
   const useUniThis: typeof import('./src/composables/useUniThis')['useUniThis']
   const useUrlSearchParams: typeof import('@vueuse/core')['useUrlSearchParams']
@@ -536,6 +538,7 @@ declare module 'vue' {
     readonly useDocumentVisibility: UnwrapRef<typeof import('@vueuse/core')['useDocumentVisibility']>
     readonly useDraggable: UnwrapRef<typeof import('@vueuse/core')['useDraggable']>
     readonly useDropZone: UnwrapRef<typeof import('@vueuse/core')['useDropZone']>
+    readonly useEcharts: UnwrapRef<typeof import('./src/composables/useEcharts')['default']>
     readonly useElementBounding: UnwrapRef<typeof import('@vueuse/core')['useElementBounding']>
     readonly useElementByPoint: UnwrapRef<typeof import('@vueuse/core')['useElementByPoint']>
     readonly useElementHover: UnwrapRef<typeof import('@vueuse/core')['useElementHover']>
@@ -641,6 +644,7 @@ declare module 'vue' {
     readonly useToString: UnwrapRef<typeof import('@vueuse/core')['useToString']>
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
+    readonly useUniElementSize: UnwrapRef<typeof import('./src/composables/useUniElementSize')['useUniElementSize']>
     readonly useUniEventChannel: UnwrapRef<typeof import('./src/composables/useUniEventChannel')['useUniEventChannel']>
     readonly useUniThis: UnwrapRef<typeof import('./src/composables/useUniThis')['useUniThis']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
@@ -870,6 +874,7 @@ declare module '@vue/runtime-core' {
     readonly useDocumentVisibility: UnwrapRef<typeof import('@vueuse/core')['useDocumentVisibility']>
     readonly useDraggable: UnwrapRef<typeof import('@vueuse/core')['useDraggable']>
     readonly useDropZone: UnwrapRef<typeof import('@vueuse/core')['useDropZone']>
+    readonly useEcharts: UnwrapRef<typeof import('./src/composables/useEcharts')['default']>
     readonly useElementBounding: UnwrapRef<typeof import('@vueuse/core')['useElementBounding']>
     readonly useElementByPoint: UnwrapRef<typeof import('@vueuse/core')['useElementByPoint']>
     readonly useElementHover: UnwrapRef<typeof import('@vueuse/core')['useElementHover']>
@@ -975,6 +980,7 @@ declare module '@vue/runtime-core' {
     readonly useToString: UnwrapRef<typeof import('@vueuse/core')['useToString']>
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
+    readonly useUniElementSize: UnwrapRef<typeof import('./src/composables/useUniElementSize')['useUniElementSize']>
     readonly useUniEventChannel: UnwrapRef<typeof import('./src/composables/useUniEventChannel')['useUniEventChannel']>
     readonly useUniThis: UnwrapRef<typeof import('./src/composables/useUniThis')['useUniThis']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>

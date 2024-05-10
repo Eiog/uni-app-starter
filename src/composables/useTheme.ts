@@ -22,6 +22,7 @@ const customBarHeight = computed(
     ? 0
     : menuButtonBounding.value.bottom + menuButtonBounding.value.top - statusBarHeight.value,
 )
+const useCustomBar = ref(false)
 export function useTheme() {
   return {
     theme,
@@ -30,5 +31,6 @@ export function useTheme() {
     statusBarHeight,
     menuButtonBounding,
     customBarHeight,
+    useCustomBar,
   }
 }

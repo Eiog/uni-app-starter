@@ -7,26 +7,29 @@ export default defineUniPages({
     },
   },
   pages: [],
-  middleware: ['global'],
   globalStyle: {
     backgroundColor: '@bgColor',
     backgroundColorBottom: '@bgColorBottom',
     backgroundColorTop: '@bgColorTop',
     backgroundTextStyle: '@bgTxtStyle',
-    navigationBarBackgroundColor: '#000000',
+    navigationBarBackgroundColor: '@navBgColor',
     navigationBarTextStyle: '@navTxtStyle',
     navigationBarTitleText: 'Vitess-Uni',
     navigationStyle: 'default',
   },
   tabBar: {
-    backgroundColor: '#FFF',
+    backgroundColor: '@tabBgColor',
     borderStyle: '@tabBorderStyle',
-    color: '#333',
-    selectedColor: '#000',
+    color: '@tabFontColor',
+    selectedColor: '@tabSelectedColor',
     list: [
       {
         pagePath: 'pages/index',
         text: '首页',
+      },
+      {
+        pagePath: 'pages/echarts',
+        text: 'ECharts',
       },
       {
         pagePath: 'pages/about',

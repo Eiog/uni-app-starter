@@ -5,6 +5,9 @@
     "paths": {
       "~/*": [
         "src/*"
+      ],
+      "~uni/*": [
+        "src/uni_modules/*"
       ]
     },
     "types": [
@@ -27,6 +30,7 @@
   ],
   "exclude": [
     "node_modules/**",
+    "src/uni_modules/**",
     "dist"
   ]
 

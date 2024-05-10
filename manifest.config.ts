@@ -53,12 +53,22 @@ export default defineManifestConfig({
   /* 小程序特有相关 */
   'mp-weixin': {
     appid: 'wx1bb89611e49fa9b7',
+    lazyCodeLoading: 'requiredComponents', // 这个要加上
+    rendererOptions: {
+      skyline: {
+        defaultDisplayBlock: true,
+        defaultContentBox: true,
+      },
+    }, // 这个要加上
     setting: {
       urlCheck: false,
     },
     usingComponents: true,
     darkmode: true,
     themeLocation: 'theme.json',
+  },
+  'mp-qq': {
+    appid: '1108100302',
   },
   'mp-alipay': {
     usingComponents: true,

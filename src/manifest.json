@@ -47,6 +47,13 @@
       "urlCheck": false
     },
     "usingComponents": true,
+    "lazyCodeLoading": "requiredComponents",
+    "rendererOptions": {
+      "skyline": {
+        "defaultDisplayBlock": true,
+        "defaultContentBox": true
+      }
+    },
     "darkmode": true,
     "themeLocation": "theme.json"
   },
@@ -63,6 +70,9 @@
     "enable": false
   },
   "vueVersion": "3",
+  "mp-qq": {
+    "appid": "1108100302"
+  },
   "h5": {
     "darkmode": true,
     "themeLocation": "theme.json"

@@ -20,6 +20,9 @@
   "name":"index",
   "meta":{
     "requiredAuth":true
+  },
+  "style":{
+    "navigationStyle": "custom"
   }
 }
 </route>

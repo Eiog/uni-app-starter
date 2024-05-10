@@ -1,9 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
-  <div>
-    <h1>about</h1>
+  <div class="h-[300px] w-full">
+    1
   </div>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+</style>
+
+<route lang="yaml">
+  style:
+    navigationBarTitleText: "About"
+</route>

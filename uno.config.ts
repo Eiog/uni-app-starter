@@ -14,20 +14,20 @@ import {
 
 import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
 import { presetUni } from '@uni-helper/unocss-preset-uni'
-import { isH5, isMp } from '@uni-helper/uni-env'
+import { isMp } from '@uni-helper/uni-env'
 
 const presets: Preset[] = []
 const transformers: SourceCodeTransformer[] = []
-const darkMode = isH5 ? 'class' : 'media'
+// const darkMode = isH5 ? 'class' : 'media'
 
 if (isMp) {
-  presets.push(presetApplet({ dark: darkMode }) as Preset)
+  presets.push(presetApplet({ dark: 'class' }) as Preset)
   presets.push(presetRemRpx())
   presets.push(presetUni())
   transformers.push(transformerAttributify({ ignoreAttributes: ['block', 'fixed'] }))
 }
 else {
-  presets.push(presetUno({ dark: darkMode }) as Preset)
+  presets.push(presetUno() as Preset)
   presets.push(presetAttributify())
   presets.push(presetRemRpx({ mode: 'rpx2rem' }))
 }
