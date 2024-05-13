@@ -8,7 +8,9 @@ const { theme, loading, toastProps, toastEv, notifyProps, notifyEv, dialogProps,
       <div class="wh-full flex items-center justify-center">
         <div class="flex-col-center gap-[10px]">
           <vin-icon name="loading" :size="26" custom-class="text-white" />
-          <span class="text-white">正在加载</span>
+          <view class="text-white">
+            正在加载
+          </view>
         </div>
       </div>
     </vin-overlay>

@@ -56,6 +56,8 @@ const options = ref<ECOption>({
 })
 const { domRef } = useEcharts(options, darkMode, (e) => {
   e.on('click', ({ data }: any) => {
+    console.log(data)
+
     toast.text(data.name)
   })
 })
@@ -127,12 +129,13 @@ function changeData() {
       <LEchart ref="domRef" />
     </div>
     <div class="flex-col">
-      <nut-button @click="changeSize">
+      <uni-tag text="标签" />
+      <button @click="changeSize">
         ChangeSize
-      </nut-button>
-      <nut-button @click="changeData">
+      </button>
+      <button @click="changeData">
         ChangeData
-      </nut-button>
+      </button>
     </div>
   </div>
 </template>
@@ -141,6 +144,7 @@ function changeData() {
 </style>
 
 <route lang="yaml">
+  layout: false
   style:
     navigationStyle: "custom"
 </route>

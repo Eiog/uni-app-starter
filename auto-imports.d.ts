@@ -164,6 +164,7 @@ declare global {
   const useAsyncQueue: typeof import('@vueuse/core')['useAsyncQueue']
   const useAsyncState: typeof import('@vueuse/core')['useAsyncState']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useAutoLoadData: typeof import('./src/composables/useAutoLoadData')['useAutoLoadData']
   const useBase64: typeof import('@vueuse/core')['useBase64']
   const useBattery: typeof import('@vueuse/core')['useBattery']
   const useBluetooth: typeof import('@vueuse/core')['useBluetooth']
@@ -507,6 +508,7 @@ declare module 'vue' {
     readonly useAsyncQueue: UnwrapRef<typeof import('@vueuse/core')['useAsyncQueue']>
     readonly useAsyncState: UnwrapRef<typeof import('@vueuse/core')['useAsyncState']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAutoLoadData: UnwrapRef<typeof import('./src/composables/useAutoLoadData')['useAutoLoadData']>
     readonly useBase64: UnwrapRef<typeof import('@vueuse/core')['useBase64']>
     readonly useBattery: UnwrapRef<typeof import('@vueuse/core')['useBattery']>
     readonly useBluetooth: UnwrapRef<typeof import('@vueuse/core')['useBluetooth']>
@@ -644,7 +646,6 @@ declare module 'vue' {
     readonly useToString: UnwrapRef<typeof import('@vueuse/core')['useToString']>
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
-    readonly useUniElementSize: UnwrapRef<typeof import('./src/composables/useUniElementSize')['useUniElementSize']>
     readonly useUniEventChannel: UnwrapRef<typeof import('./src/composables/useUniEventChannel')['useUniEventChannel']>
     readonly useUniThis: UnwrapRef<typeof import('./src/composables/useUniThis')['useUniThis']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
@@ -843,6 +844,7 @@ declare module '@vue/runtime-core' {
     readonly useAsyncQueue: UnwrapRef<typeof import('@vueuse/core')['useAsyncQueue']>
     readonly useAsyncState: UnwrapRef<typeof import('@vueuse/core')['useAsyncState']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAutoLoadData: UnwrapRef<typeof import('./src/composables/useAutoLoadData')['useAutoLoadData']>
     readonly useBase64: UnwrapRef<typeof import('@vueuse/core')['useBase64']>
     readonly useBattery: UnwrapRef<typeof import('@vueuse/core')['useBattery']>
     readonly useBluetooth: UnwrapRef<typeof import('@vueuse/core')['useBluetooth']>
@@ -980,7 +982,6 @@ declare module '@vue/runtime-core' {
     readonly useToString: UnwrapRef<typeof import('@vueuse/core')['useToString']>
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
-    readonly useUniElementSize: UnwrapRef<typeof import('./src/composables/useUniElementSize')['useUniElementSize']>
     readonly useUniEventChannel: UnwrapRef<typeof import('./src/composables/useUniEventChannel')['useUniEventChannel']>
     readonly useUniThis: UnwrapRef<typeof import('./src/composables/useUniThis')['useUniThis']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>

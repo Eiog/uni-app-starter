@@ -3,8 +3,9 @@ import { defineStore } from 'pinia'
 export const useAppStore = defineStore(
   'appStore',
   () => {
+    const { language } = useLanguage()
     return {
-
+      language,
     }
   },
   {
@@ -12,22 +13,8 @@ export const useAppStore = defineStore(
       key: '__APP_STORE_PERSIST__',
       paths: [''],
       storage: {
-        setItem: (key, value) => {
-          try {
-            return uni.setStorageSync(key, value)
-          }
-          catch (error) {
-            return false
-          }
-        },
-        getItem: (key) => {
-          try {
-            return uni.getStorageSync(key)
-          }
-          catch (error) {
-            return false
-          }
-        },
+        setItem: (key, value) => uni.setStorageSync(key, value),
+        getItem: key => uni.getStorageSync(key),
       },
     },
   },

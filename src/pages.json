@@ -25,6 +25,7 @@
     {
       "path": "pages/echarts",
       "type": "page",
+      "layout": false,
       "style": {
         "navigationStyle": "custom"
       }
