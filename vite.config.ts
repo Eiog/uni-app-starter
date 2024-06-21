@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 import process from 'node:process'
+import type { UserConfig } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import Uni from '@dcloudio/vite-plugin-uni'
 import UniHelperManifest from '@uni-helper/vite-plugin-uni-manifest'
@@ -54,7 +55,7 @@ export default defineConfig(async ({ mode }) => {
             [VITE_API_BASE_PREFIX]: {
               target: VITE_API_BASE_URL,
               changeOrigin: true,
-              rewrite: path => path.replace(/^\`${VITE_API_BASE_PREFIX}`/, ''),
+              rewrite: path => path.replace(new RegExp(`^${VITE_API_BASE_PREFIX}`), ''),
             },
           },
     },
@@ -86,5 +87,5 @@ export default defineConfig(async ({ mode }) => {
         ],
       },
     },
-  }
+  } as UserConfig
 })
