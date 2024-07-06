@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     NutToast: typeof import('nutui-uniapp/components/toast/toast.vue')['default']
     NutUiDemo: typeof import('./src/components/NutUiDemo.vue')['default']
     NutUiProvider: typeof import('./src/components/NutUiProvider.vue')['default']
+    RoundedCenterPie: typeof import('./src/components/RoundedCenterPie.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
     ToggleDarkMode: typeof import('./src/components/ToggleDarkMode.vue')['default']
     ToggleLanguage: typeof import('./src/components/ToggleLanguage.vue')['default']

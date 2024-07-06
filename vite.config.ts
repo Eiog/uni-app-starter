@@ -2,23 +2,24 @@ import { resolve } from 'node:path'
 import process from 'node:process'
 import type { UserConfig } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
-import Uni from '@dcloudio/vite-plugin-uni'
+import uniModule from '@dcloudio/vite-plugin-uni'
 import UniHelperManifest from '@uni-helper/vite-plugin-uni-manifest'
 import UniHelperPages from '@uni-helper/vite-plugin-uni-pages'
 import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import Icons from 'unplugin-icons/vite'
 import postcssPresetEnv from 'postcss-preset-env'
 import px2rpx from 'postcss-pxtorpx-pro'
+import Unocss from 'unocss/vite'
 import { VitePluginMock } from './plugin/vite-plugin-mock'
 import { VitePluginAutoImport, VitePluginComponents, VitePluginI18n } from './config'
 import { VitePluginUniVueUsePolyfill } from './plugin/vite-plugin-uni-vueuse-polyfill'
-
 // https://uni-helper.js.org/uni-use
 // https://uni-helper.js.org/axios-adapter
 // https://vitejs.dev/config/
-export default defineConfig(async ({ mode }) => {
+export default defineConfig(({ mode }) => {
   const { VITE_DEV_PORT, VITE_API_BASE_PREFIX, VITE_API_BASE_URL, VITE_BASE } = loadEnv(mode, process.cwd(), '')
-  const Unocss = (await import('unocss/vite')).default
+  // @ts-expect-error missing types
+  const Uni = uniModule.default || uniModule
   return {
     plugins: [
       UniHelperManifest(), // https://uni-helper.js.org/vite-plugin-uni-manifest
