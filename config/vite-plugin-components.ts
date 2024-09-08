@@ -1,7 +1,7 @@
-import type { PluginOption } from 'vite'
 import UniHelperComponents from '@uni-helper/vite-plugin-uni-components'
-import { NutResolver } from 'nutui-uniapp'
 import { UniUIResolver, WotResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
+import { NutResolver } from 'nutui-uniapp'
+import type { PluginOption } from 'vite'
 import { VinUIResolver } from '../plugin/vin-ui-resolver'
 
 export function VitePluginComponents(): PluginOption[] {

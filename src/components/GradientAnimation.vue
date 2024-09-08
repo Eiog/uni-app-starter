@@ -28,11 +28,7 @@ const props = withDefaults(defineProps<{
   height: 150%;
   filter: blur(50px);
   animation: animate-1 20s linear infinite;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(255, 189, 46, 0.1) 0,
-    rgba(255, 189, 46, 0) 100%
-  );
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 189, 46, 0.1) 0, rgba(255, 189, 46, 0) 100%);
 }
 @keyframes animate-1 {
   0% {

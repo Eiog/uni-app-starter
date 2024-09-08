@@ -1,5 +1,5 @@
-import type { ActionSheetOption, ActionsheetProps, DialogInst, DialogOptions, NotifyInst, NotifyOptions, ToastInst, ToastOptions } from 'nutui-uniapp'
 import { EnUSLang, Locale, ZhCNLang } from 'nutui-uniapp/locale'
+import type { ActionSheetOption, ActionsheetProps, DialogInst, DialogOptions, NotifyInst, NotifyOptions, ToastInst, ToastOptions } from 'nutui-uniapp'
 
 type ActionSheetProps = Partial<ActionsheetProps>
 const { theme, toggleTheme, darkMode } = useTheme()

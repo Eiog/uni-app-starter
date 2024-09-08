@@ -1,8 +1,8 @@
-import type { useMessage, useNotify, useToast } from 'wot-design-uni'
-import type { Action, ActionSheetProps } from 'wot-design-uni/components/wd-action-sheet/types'
 import { Locale } from 'wot-design-uni'
 import enUS from 'wot-design-uni/locale/lang/en-US'
 import zhCN from 'wot-design-uni/locale/lang/zh-CN'
+import type { useMessage, useNotify, useToast } from 'wot-design-uni'
+import type { Action, ActionSheetProps } from 'wot-design-uni/components/wd-action-sheet/types'
 
 type IActionSheetProps = Partial <Omit <ActionSheetProps, 'actions'>> & { actions?: Partial<Omit <Action, 'name'>> & { name: string }[] }
 const { theme, toggleTheme, darkMode } = useTheme()

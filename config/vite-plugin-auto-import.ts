@@ -1,6 +1,6 @@
-import type { PluginOption } from 'vite'
-
 import AutoImport from 'unplugin-auto-import/vite'
+
+import type { PluginOption } from 'vite'
 
 export function VitePluginAutoImport(): PluginOption[] {
   return [

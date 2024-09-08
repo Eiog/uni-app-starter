@@ -1,8 +1,8 @@
 import { readdirSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import process from 'node:process'
-import type { Plugin } from 'vite'
 import express from 'express'
+import type { Plugin } from 'vite'
 
 import routes from '../api/_routes'
 
