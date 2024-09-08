@@ -1,7 +1,6 @@
-import type {
-  Preset,
-  SourceCodeTransformer,
-} from 'unocss'
+import { isMp } from '@uni-helper/uni-env'
+
+import { presetUni } from '@uni-helper/unocss-preset-uni'
 
 import {
   defineConfig,
@@ -11,10 +10,11 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-
 import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
-import { presetUni } from '@uni-helper/unocss-preset-uni'
-import { isMp } from '@uni-helper/uni-env'
+import type {
+  Preset,
+  SourceCodeTransformer,
+} from 'unocss'
 
 const presets: Preset[] = []
 const transformers: SourceCodeTransformer[] = []
@@ -33,6 +33,9 @@ else {
 }
 
 export default defineConfig({
+  rules: [
+    [/^line-clamp-(\d+)$/, ([, d]) => ({ 'line-clamp': `${d}`, '-webkit-line-clamp': `${d}`, 'display': '-webkit-box', '-webkit-box-orient': 'vertical', 'overflow': 'hidden', 'text-overflow': 'ellipsis' })],
+  ],
   shortcuts: {
     'wh-full': 'w-full h-full',
     'flex-center': 'flex justify-center items-center',

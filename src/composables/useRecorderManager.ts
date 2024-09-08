@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/consistent-function-scoping */
 interface RecordResult {
   tempFilePath: string
   duration: number

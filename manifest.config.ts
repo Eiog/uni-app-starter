@@ -54,6 +54,7 @@ export default defineManifestConfig({
   'mp-weixin': {
     appid: 'wx1bb89611e49fa9b7',
     lazyCodeLoading: 'requiredComponents', // 这个要加上
+    componentFramework: 'glass-easel',
     rendererOptions: {
       skyline: {
         defaultDisplayBlock: true,
