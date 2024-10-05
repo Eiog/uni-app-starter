@@ -1,5 +1,5 @@
-import { useInfiniteScroll } from 'vue-hooks-plus'
 import type { UseInfiniteData, UseInfiniteScrollOptions } from 'vue-hooks-plus/lib/useInfiniteScroll/types'
+import { useInfiniteScroll } from 'vue-hooks-plus'
 
 export function useAutoLoadData<T extends UseInfiniteData, K extends Record<string, any>>(
   service: (param: { page: number, limit: number } & Record<string, any>) => Promise<T>,

@@ -1,10 +1,10 @@
-import { Locale } from '@vingogo/uni-ui'
-import enUS from '@vingogo/uni-ui/lib/locale/en-US'
-import zhCN from '@vingogo/uni-ui/lib/locale/zh-CN'
 import type { ActionSheetProps, menuItems } from '@vingogo/uni-ui/lib/types/components/action-sheet/common'
 import type { DialogProps } from '@vingogo/uni-ui/lib/types/components/dialog/common'
 import type { NotifyProps } from '@vingogo/uni-ui/lib/types/components/notify/common'
 import type { ToastProps } from '@vingogo/uni-ui/lib/types/components/toast/common'
+import { Locale } from '@vingogo/uni-ui'
+import enUS from '@vingogo/uni-ui/lib/locale/en-US'
+import zhCN from '@vingogo/uni-ui/lib/locale/zh-CN'
 
 type IActionSheetProps = Partial<Omit<ActionSheetProps, 'menuItems'>> & { menuItems: (Partial<Omit <menuItems, 'name'>> & { name: string })[] }
 const { theme, toggleTheme, darkMode } = useTheme()

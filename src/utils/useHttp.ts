@@ -1,6 +1,6 @@
+import type { UnConfig, UnError, UnInstance, UnResponse } from '@uni-helper/uni-network'
 import process from 'node:process'
 import un from '@uni-helper/uni-network'
-import type { UnConfig, UnError, UnInstance, UnResponse } from '@uni-helper/uni-network'
 
 let basePrefix = import.meta.env.VITE_API_BASE_PREFIX || ''
 // #ifndef H5

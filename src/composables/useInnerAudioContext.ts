@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/consistent-function-scoping */
 interface Options {
   src?: string
   startTime?: number

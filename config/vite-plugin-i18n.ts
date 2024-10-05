@@ -1,8 +1,8 @@
+import type { PluginOption } from 'vite'
 import { resolve } from 'node:path'
 import process from 'node:process'
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
-import type { PluginOption } from 'vite'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 export function VitePluginI18n(): PluginOption[] {
   return [

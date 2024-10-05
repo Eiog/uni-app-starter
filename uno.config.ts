@@ -1,7 +1,11 @@
+import type {
+  Preset,
+  SourceCodeTransformer,
+} from 'unocss'
+
 import { isMp } from '@uni-helper/uni-env'
 
 import { presetUni } from '@uni-helper/unocss-preset-uni'
-
 import {
   defineConfig,
   presetAttributify,
@@ -11,10 +15,6 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
-import type {
-  Preset,
-  SourceCodeTransformer,
-} from 'unocss'
 
 const presets: Preset[] = []
 const transformers: SourceCodeTransformer[] = []
