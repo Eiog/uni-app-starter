@@ -2,10 +2,10 @@ import type { ActionSheetOption, ActionsheetProps, DialogInst, DialogOptions, No
 import { EnUSLang, Locale, ZhCNLang } from 'nutui-uniapp/locale'
 
 type ActionSheetProps = Partial<ActionsheetProps>
-const { theme, toggleTheme, darkMode } = useTheme()
-const { language } = useLanguage()
-watch(language, (v) => {
-  Locale.use(v === 'cn' ? 'zh-CN' : 'en-US', v === 'cn' ? ZhCNLang() : EnUSLang())
+const { theme, toggle, isDark } = useTheme()
+const { locale } = useLanguage()
+watch(locale, (v) => {
+  Locale.use(v as 'zh-CN' | 'en-US', v === 'zh-CN' ? ZhCNLang() : EnUSLang())
 })
 const loading = ref(false)
 function toggleLoading(value?: boolean) {
@@ -120,8 +120,8 @@ export function useNutUI() {
   }
   return {
     theme,
-    toggleTheme,
-    darkMode,
+    toggle,
+    isDark,
     loading,
     toggleLoading,
     toastRef,

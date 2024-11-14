@@ -5,10 +5,10 @@ import enUS from 'wot-design-uni/locale/lang/en-US'
 import zhCN from 'wot-design-uni/locale/lang/zh-CN'
 
 type IActionSheetProps = Partial <Omit <ActionSheetProps, 'actions'>> & { actions?: Partial<Omit <Action, 'name'>> & { name: string }[] }
-const { theme, toggleTheme, darkMode } = useTheme()
-const { language } = useLanguage()
-watch(language, (v) => {
-  Locale.use(v === 'cn' ? 'zh-CN' : 'en-US', v === 'cn' ? zhCN : enUS)
+const { theme, toggle, isDark } = useTheme()
+const { locale } = useLanguage()
+watch(locale, (v) => {
+  Locale.use(v as 'zh-CN' | 'en-US', v === 'zh-CN' ? zhCN : enUS)
 })
 const loading = ref(false)
 function toggleLoading(value?: boolean) {
@@ -95,8 +95,8 @@ export function useWdUI() {
   }
   return {
     theme,
-    toggleTheme,
-    darkMode,
+    toggle,
+    isDark,
     loading,
     toggleLoading,
     setup,

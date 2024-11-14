@@ -64,7 +64,6 @@ export default defineConfig(({ mode }) => {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
         '~uni': resolve(__dirname, './src/uni_modules'), // 路径别名
-        'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js',
       },
     },
     css: {

@@ -47,23 +47,15 @@ instance.interceptors.response.use(
   },
 )
 
-export const get: <RES = any, REQ = any>(
-  path: string,
-  params?: REQ,
-) => Promise<UnResponse<RES, REQ>['data']> = (path, params) => {
-  return instance.get(path, {
-    params: params as any,
+export function get<RES = any, REQ = object>(path: string, data?: REQ): Promise<RES> {
+  return instance(path, {
+    method: 'get',
+    params: data as any,
   })
 }
-
-export const post: <RES = any, REQ = object>(
-  path: string,
-  data?: REQ,
-) => Promise<UnResponse<RES, REQ>['data']> = (path, data) => {
-  return instance.post(path, data)
-}
-export const http = {
-  instance,
-  get,
-  post,
+export function post<RES extends string | object>(path: string, data?: Record<string, any>): Promise<RES> {
+  return instance(path, {
+    method: 'post',
+    data,
+  })
 }

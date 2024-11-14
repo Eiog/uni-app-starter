@@ -1,12 +1,34 @@
 <script setup lang="ts">
-
+const { colorModeOptions, colorMode, setColorMode } = useTheme()
+const { languageOptions, language, setLanguage } = useLanguage()
+function onThemeChange(v: any) {
+  setColorMode(v.detail.value)
+}
+function onLanguageChange(v: any) {
+  setLanguage(v.detail.value)
+}
 </script>
 
 <template>
-  <div class="">
-    <view class="w-[200px] line-clamp-3">
-      <text>如果你已经熟悉了 Tailwind CSS，可以把 Windi CSS 看作是按需供应的 Tailwind 替代方案，它为你提供了更快的加载体验，完美兼容 Tailwind v2.0，并且拥有很多额外的酷炫功能。</text>
-    </view>
+  <div class="w-full flex-col gap-[10px] p-[10px]">
+    <div class="w-full flex-col gap-[10px] rounded-md bg-black/10 p-[10px]">
+      <div>主题设置</div>
+      <radio-group class="w-full flex-y-center gap-[10px]" @change="onThemeChange">
+        <label v-for="item in colorModeOptions" :key="item.value">
+          <radio :value="item.value" :checked="colorMode === item.value" />
+          {{ item.label }}
+        </label>
+      </radio-group>
+    </div>
+    <div class="w-full flex-col gap-[10px] rounded-md bg-black/10 p-[10px]">
+      <div>主题设置</div>
+      <radio-group class="w-full flex-y-center gap-[10px]" @change="onLanguageChange">
+        <label v-for="item in languageOptions" :key="item.value">
+          <radio :value="item.value" :checked="language === item.value" />
+          {{ item.label }}
+        </label>
+      </radio-group>
+    </div>
   </div>
 </template>
 
@@ -18,5 +40,4 @@
   style:
     navigationStyle: "default"
     navigationBarTitleText: "About"
-    usingComponents:
 </route>

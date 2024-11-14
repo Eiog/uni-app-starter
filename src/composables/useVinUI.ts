@@ -7,10 +7,10 @@ import enUS from '@vingogo/uni-ui/lib/locale/en-US'
 import zhCN from '@vingogo/uni-ui/lib/locale/zh-CN'
 
 type IActionSheetProps = Partial<Omit<ActionSheetProps, 'menuItems'>> & { menuItems: (Partial<Omit <menuItems, 'name'>> & { name: string })[] }
-const { theme, toggleTheme, darkMode } = useTheme()
-const { language } = useLanguage()
-watch(language, (v) => {
-  Locale.use(v === 'cn' ? 'zh-CN' : 'en-US', v === 'cn' ? zhCN : enUS)
+const { theme, toggle, isDark } = useTheme()
+const { locale } = useLanguage()
+watch(locale, (v) => {
+  Locale.use(v as 'zh-CN' | 'en-US', v === 'zh-CN' ? zhCN : enUS)
 })
 const loading = ref(false)
 function toggleLoading(value?: boolean) {
@@ -185,8 +185,8 @@ export function useVinUI() {
   }
   return {
     theme,
-    toggleTheme,
-    darkMode,
+    toggle,
+    isDark,
     loading,
     toggleLoading,
     toastProps,

@@ -22,8 +22,6 @@ declare module 'vue' {
     NutUiProvider: typeof import('./src/components/NutUiProvider.vue')['default']
     RoundedCenterPie: typeof import('./src/components/RoundedCenterPie.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
-    ToggleDarkMode: typeof import('./src/components/ToggleDarkMode.vue')['default']
-    ToggleLanguage: typeof import('./src/components/ToggleLanguage.vue')['default']
     UniTag: typeof import('@dcloudio/uni-ui/lib/uni-tag/uni-tag.vue')['default']
     VinActionSheet: typeof import('@vingogo/uni-ui/lib/components/action-sheet/index.vue')['default']
     VinAvatar: typeof import('@vingogo/uni-ui/lib/components/avatar/index.vue')['default']
@@ -59,6 +57,7 @@ declare module 'vue' {
     WdNotify: typeof import('wot-design-uni/components/wd-notify/wd-notify.vue')['default']
     WdOverlay: typeof import('wot-design-uni/components/wd-overlay/wd-overlay.vue')['default']
     WdToast: typeof import('wot-design-uni/components/wd-toast/wd-toast.vue')['default']
+    WdTransition: typeof import('wot-design-uni/components/wd-transition/wd-transition.vue')['default']
     WdUiDemo: typeof import('./src/components/WdUiDemo.vue')['default']
     WdUiProvider: typeof import('./src/components/WdUiProvider.vue')['default']
   }
