@@ -10,6 +10,7 @@ export function VitePluginI18n(): PluginOption[] {
       runtimeOnly: true,
       compositionOnly: true,
       fullInstall: true,
+      ssr: true,
       include: resolve(process.cwd(), 'src/locales/**'),
     }), // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
 

@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { toggleTheme, toggleLoading, toast, notify, onNotify, dialog, onDialog, actionSheet, onActionSheet } = useNutUI()
+const { toggle, toggleLoading, toast, notify, onNotify, dialog, onDialog, actionSheet, onActionSheet } = useNutUI()
 onNotify.onClosed(() => {
   toast.text('NutUi Notify closed')
 })
@@ -12,7 +12,7 @@ onActionSheet.onChoose((item) => {
 function actions(ev: 'theme' | 'loading' | 'toast' | 'notify' | 'dialog' | 'actionSheet') {
   switch (ev) {
     case 'theme':
-      toggleTheme()
+      toggle()
       break
     case 'loading':
       toggleLoading()

@@ -3,6 +3,7 @@ import type { Action, ActionSheetProps } from 'wot-design-uni/components/wd-acti
 import { Locale } from 'wot-design-uni'
 import enUS from 'wot-design-uni/locale/lang/en-US'
 import zhCN from 'wot-design-uni/locale/lang/zh-CN'
+import { useLanguage } from '~/modules'
 
 type IActionSheetProps = Partial <Omit <ActionSheetProps, 'actions'>> & { actions?: Partial<Omit <Action, 'name'>> & { name: string }[] }
 const { theme, toggle, isDark } = useTheme()

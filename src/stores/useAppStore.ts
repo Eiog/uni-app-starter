@@ -3,9 +3,8 @@ import { defineStore } from 'pinia'
 export const useAppStore = defineStore(
   'appStore',
   () => {
-    const { language } = useLanguage()
     return {
-      language,
+
     }
   },
   {

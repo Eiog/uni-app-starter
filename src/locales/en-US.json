@@ -1,6 +1,12 @@
 {
-  "Hello": "Hello World !",
-  "Welcome": "Welcome Use This Template",
-  "Examples": "Examples",
-  "Dependents": "Dependents"
+  "global": {
+    "setting": {
+      "theme": {
+        "title": "Theme Setting"
+      },
+      "language": {
+        "title": "Language Setting"
+      }
+    }
+  }
 }

@@ -18,7 +18,8 @@ import { VitePluginUniVueUsePolyfill } from './plugin/vite-plugin-uni-vueuse-pol
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const { VITE_DEV_PORT, VITE_API_BASE_PREFIX, VITE_API_BASE_URL, VITE_BASE } = loadEnv(mode, process.cwd(), '')
-  // @ts-expect-error missing types
+  // eslint-disable-next-line ts/ban-ts-comment
+  // @ts-expect-error
   const Uni = uniModule.default || uniModule
   return {
     plugins: [
@@ -32,7 +33,7 @@ export default defineConfig(({ mode }) => {
       VitePluginMock({ prefix: VITE_API_BASE_PREFIX }),
       ...VitePluginAutoImport(),
       ...VitePluginComponents(),
-      ...VitePluginI18n(),
+      ...process.env.UNI_PLATFORM === 'h5' ? VitePluginI18n() : [],
       Uni(),
       VitePluginUniVueUsePolyfill(),
     ],
@@ -40,6 +41,12 @@ export default defineConfig(({ mode }) => {
     base: VITE_BASE ?? '/',
     build: {
       sourcemap: false,
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          directives: false,
+        },
+      },
     },
     optimizeDeps: {
       exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['wot-design-uni'] : [],

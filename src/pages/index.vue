@@ -4,7 +4,6 @@
 
 <template>
   <div class="flex-col-center gap-[10px] p-[10px]">
-    <HelloWorld />
     <NutUiDemo />
     <WdUiDemo />
     <VinUiDemo />

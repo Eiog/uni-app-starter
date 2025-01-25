@@ -59,6 +59,8 @@ export default defineManifestConfig({
       skyline: {
         defaultDisplayBlock: true,
         defaultContentBox: true,
+        sdkVersionBegin: '3.0.0',
+        sdkVersionEnd: '15.255.255',
       },
     }, // 这个要加上
     setting: {

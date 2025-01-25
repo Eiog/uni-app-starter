@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import type { ECElementEvent } from 'echarts'
-import type { ECOption } from '~/hooks/useEcharts'
+import type { ECOption } from '~/composables/useEcharts'
 
 const props = defineProps<{
   title?: string
@@ -10,7 +10,7 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'click', v: ECElementEvent): void
 }>()
-const { useDarkMode } = storeToRefs(useAppStore())
+const { isDark } = useTheme()
 const options = computed<ECOption>(() => {
   return {
     ...{
@@ -61,7 +61,7 @@ const options = computed<ECOption>(() => {
 
   }
 })
-const { domRef } = useEcharts(options, useDarkMode, (e) => {
+const { domRef } = useEcharts(options, isDark, (e) => {
   e.on('click', (v) => {
     emit('click', v as any)
   })

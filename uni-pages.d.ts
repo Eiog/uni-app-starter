@@ -6,7 +6,8 @@
 interface NavigateToOptions {
   url: "/pages/index" |
        "/pages/about" |
-       "/pages/echarts";
+       "/pages/echarts" |
+       "/pages/skyline";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 

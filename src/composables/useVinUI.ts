@@ -5,6 +5,7 @@ import type { ToastProps } from '@vingogo/uni-ui/lib/types/components/toast/comm
 import { Locale } from '@vingogo/uni-ui'
 import enUS from '@vingogo/uni-ui/lib/locale/en-US'
 import zhCN from '@vingogo/uni-ui/lib/locale/zh-CN'
+import { useLanguage } from '~/modules'
 
 type IActionSheetProps = Partial<Omit<ActionSheetProps, 'menuItems'>> & { menuItems: (Partial<Omit <menuItems, 'name'>> & { name: string })[] }
 const { theme, toggle, isDark } = useTheme()

@@ -1,12 +1,12 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-import LEchart from '~uni/lime-echart_0.8.7/components/l-echart/l-echart.vue'
 import type { ECOption } from '~/composables/useEcharts'
+import LEchart from '~uni/lime-echart_0.8.7/components/l-echart/l-echart.vue'
 
 console.log(getCurrentPages())
 
 const { toast } = useNutUI()
-const { darkMode } = useTheme()
+const { isDark } = useTheme()
 const options = ref<ECOption>({
   tooltip: {
     trigger: 'item',
@@ -54,7 +54,7 @@ const options = ref<ECOption>({
     },
   ],
 })
-const { domRef } = useEcharts(options, darkMode, (e) => {
+const { domRef } = useEcharts(options, isDark, (e) => {
   e.on('click', ({ data }: any) => {
     console.log(data)
 

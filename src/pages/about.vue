@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { languageOptions, useLanguage } from '~/modules'
+
+const { t } = useI18n()
 const { colorModeOptions, colorMode, setColorMode } = useTheme()
-const { languageOptions, language, setLanguage } = useLanguage()
+const { language, setLanguage } = useLanguage()
 function onThemeChange(v: any) {
   setColorMode(v.detail.value)
 }
@@ -12,7 +15,7 @@ function onLanguageChange(v: any) {
 <template>
   <div class="w-full flex-col gap-[10px] p-[10px]">
     <div class="w-full flex-col gap-[10px] rounded-md bg-black/10 p-[10px]">
-      <div>主题设置</div>
+      <div>{{ t('global.setting.theme.title') }}</div>
       <radio-group class="w-full flex-y-center gap-[10px]" @change="onThemeChange">
         <label v-for="item in colorModeOptions" :key="item.value">
           <radio :value="item.value" :checked="colorMode === item.value" />
@@ -21,7 +24,7 @@ function onLanguageChange(v: any) {
       </radio-group>
     </div>
     <div class="w-full flex-col gap-[10px] rounded-md bg-black/10 p-[10px]">
-      <div>主题设置</div>
+      <div>{{ t('global.setting.language.title') }}</div>
       <radio-group class="w-full flex-y-center gap-[10px]" @change="onLanguageChange">
         <label v-for="item in languageOptions" :key="item.value">
           <radio :value="item.value" :checked="language === item.value" />
