@@ -22,12 +22,12 @@ const colorModeOptions = [
 ]
 const colorMode = ref<'light' | 'dark' | 'auto'>(uni.getStorageSync('color-mode') || 'auto')
 
-const isDark = computed(() => colorMode.value === 'dark')
 const systemColorMode = ref<'light' | 'dark'>('light')
 watch(colorMode, (v) => {
   uni.setStorageSync('color-mode', v)
 })
 const theme = computed(() => colorMode.value === 'auto' ? systemColorMode.value : colorMode.value)
+const isDark = computed(() => theme.value === 'dark')
 
 function setColorMode(value: 'light' | 'dark' | 'auto') {
   colorMode.value = value

@@ -39,8 +39,7 @@ function onLanguageChange(v: any) {
 </style>
 
 <route lang="yaml">
-  layout: false
   style:
     navigationStyle: "default"
-    navigationBarTitleText: "About"
+    navigationBarTitleText: "设置"
 </route>

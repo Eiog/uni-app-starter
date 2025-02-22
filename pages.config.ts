@@ -32,8 +32,8 @@ export default defineUniPages({
         text: 'ECharts',
       },
       {
-        pagePath: 'pages/about',
-        text: '关于',
+        pagePath: 'pages/setting',
+        text: '设置',
       },
     ],
   },
