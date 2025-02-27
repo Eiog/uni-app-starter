@@ -6,7 +6,6 @@
   <div class="flex-col-center gap-[10px] p-[10px]">
     <NutUiDemo />
     <WdUiDemo />
-    <VinUiDemo />
   </div>
 </template>
 

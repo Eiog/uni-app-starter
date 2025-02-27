@@ -1,7 +1,7 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import type { ECOption } from '~/composables/useEcharts'
-import LEchart from '~uni/lime-echart_0.8.7/components/l-echart/l-echart.vue'
+import LEchart from '~uni/lime-echart_0.9.9/components/l-echart/l-echart.vue'
 
 console.log(getCurrentPages())
 

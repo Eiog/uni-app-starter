@@ -17,20 +17,18 @@
       "@uni-helper/uni-app-types",
       "@intlify/unplugin-vue-i18n/messages",
       "wot-design-uni/global.d.ts",
-      "nutui-uniapp/global.d.ts",
-      "@vingogo/uni-ui/lib/types/index.d.ts"
+      "nutui-uniapp/global.d.ts"
     ]
   },
   "include": [
     "*.d.ts",
     "src/**/*.ts",
-    "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
   ],
   "exclude": [
     "node_modules/**",
-    "src/uni_modules/**",
+    "**/uni_modules/**",
     "dist"
   ]
 

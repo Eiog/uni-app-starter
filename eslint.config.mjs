@@ -6,6 +6,6 @@ export default antfu({
   ignores: [
     'src/manifest.json',
     'src/pages.json',
-    'src/uni_modules',
+    '**/uni_modules',
   ],
 })

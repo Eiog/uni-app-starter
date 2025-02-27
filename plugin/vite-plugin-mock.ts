@@ -1,42 +1,53 @@
 import type { Plugin } from 'vite'
-import { readdirSync, statSync, writeFileSync } from 'node:fs'
+import { readdirSync, statSync } from 'node:fs'
 import { resolve } from 'node:path'
 import process from 'node:process'
-import express from 'express'
+import express, { Router } from 'express'
 
-import routes from '../api/_routes'
+interface Options {
+  prefix?: string
+  dirPath?: string
+  mockAll?: boolean
+}
+export async function VitePluginMock(options?: Options): Promise<Plugin<any>> {
+  const { prefix = '/api', dirPath = 'api', mockAll = true } = options || {}
+  const localPath = resolve(process.cwd(), dirPath)
 
-export function VitePluginMock(options?: { prefix?: string, dirPath?: string }): Plugin {
-  const { prefix = '/api', dirPath = 'api' } = options || {}
   const app = express()
   app.use(express.json())
-  const routesPath = readdirSync(resolve(process.cwd(), dirPath))
-    .filter(f => f.endsWith('.ts') && !f.startsWith('_') && statSync(`${resolve(process.cwd(), dirPath)}/${f}`).isFile())
 
-  const routesImports = routesPath.map(m => `import ${m.replace('.ts', '')} from './${m}'`).join('\n')
-  const routesFunc = routesPath.map(m => `router.all('/${m.replace('.ts', '')}', ${m.replace('.ts', '')})`).join('\n')
+  const router = Router()
+  app.use(router)
 
-  const routesFile = `// eslint-disable-next-line ts/ban-ts-comment
-// @ts-nocheck
-import { Router } from 'express'
-${routesImports}
+  const routesPath = readdirSync(localPath)
+    .filter(f => f.endsWith('.ts') && !f.startsWith('_') && statSync(`${localPath}/${f}`).isFile())
+  const asyncImport = routesPath.map(async (m) => {
+    return {
+      path: `/${m.replace('.ts', '')}`,
+      fun: await import(`../api/${m}`),
+    }
+  })
+  Promise.all(asyncImport).then((asyncFunc) => {
+    asyncFunc.forEach((f) => {
+      const keys = Object.keys(f.fun)
+      if (keys.includes('default'))
+        router.all(f.path, f.fun.default)
+    })
+  })
 
-const router = Router()
-${routesFunc}
-export default router
-`
-  writeFileSync(resolve(process.cwd(), dirPath, '_routes.ts'), routesFile)
-  app.use(routes)
   return {
     name: 'vite-plugin-vercel-mock',
     apply: 'serve',
     configureServer: async (server) => {
-    // mount mock server, `/api` is the base url
+      server.watcher.add(localPath)
+      // mount mock server, `/api` is the base url
       server.middlewares.use(prefix, app)
-      server.middlewares.use(prefix, (req, res) => {
-        res.statusCode = 404
-        res.end('Moke Path Not Found ! like api/[path]')
-      })
+      if (mockAll) {
+        server.middlewares.use(prefix, (req, res) => {
+          res.statusCode = 404
+          res.end('Moke Path Not Found ! like api/[path]')
+        })
+      }
     },
   }
 }

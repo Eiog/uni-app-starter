@@ -1,17 +1,12 @@
 <script setup lang="ts">
-const { isDark, useCustomBar, customBarHeight } = useTheme()
+const { isDark } = useTheme()
 </script>
 
 <template>
   <div :class="isDark ? 'dark' : 'light'">
     <NutUiProvider>
       <WdUiProvider>
-        <VinUiProvider>
-          <div class="flex-col">
-            <div v-if="useCustomBar" :style="{ height: `${customBarHeight}px` }" class="w-full bg-black/20" />
-            <slot />
-          </div>
-        </VinUiProvider>
+        <slot />
       </WdUiProvider>
     </NutUiProvider>
   </div>

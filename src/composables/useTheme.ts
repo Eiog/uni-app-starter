@@ -1,11 +1,3 @@
-export interface MenuButtonBoundingClientRect {
-  width: number
-  height: number
-  top: number
-  left: number
-  right: number
-  bottom: number
-}
 const colorModeOptions = [
   {
     label: '自动',
@@ -35,15 +27,19 @@ function setColorMode(value: 'light' | 'dark' | 'auto') {
 function toggle() {
   colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
 }
-const statusBarHeight = ref(44)
-const menuButtonBounding = ref<MenuButtonBoundingClientRect>({ width: 87, height: 32, left: 281, top: 4, right: 368, bottom: 36 })
+const statusBarHeight = ref(0)
+const customBarHeight = ref(44)
+const menuButtonBounding = ref<UniNamespace.GetMenuButtonBoundingClientRectRes>()
+const windowInfo = ref<UniNamespace.GetWindowInfoResult>()
 // #ifdef MP-WEIXIN
 menuButtonBounding.value = uni.getMenuButtonBoundingClientRect()
+statusBarHeight.value = uni.getWindowInfo().statusBarHeight
+windowInfo.value = uni.getWindowInfo()
 systemColorMode.value = uni.getAppBaseInfo().theme as any ?? 'light'
 uni.onThemeChange((res: UniApp.OnThemeChangeCallbackResult) => {
   systemColorMode.value = res.theme
 })
-statusBarHeight.value = uni.getWindowInfo().statusBarHeight
+
 // #endif
 
 // #ifdef H5
@@ -51,9 +47,7 @@ window.matchMedia('(prefers - color - scheme: dark)').addEventListener('change',
   systemColorMode.value = e.matches ? 'dark' : 'light'
 })
 // #endif
-const customBarHeight = computed(() => menuButtonBounding.value.bottom + menuButtonBounding.value.top - statusBarHeight.value)
 
-const useCustomBar = ref(false)
 export function useTheme() {
   return {
     colorModeOptions,
@@ -64,8 +58,8 @@ export function useTheme() {
     setColorMode,
     toggle,
     statusBarHeight,
-    menuButtonBounding,
     customBarHeight,
-    useCustomBar,
+    menuButtonBounding,
+    windowInfo,
   }
 }

@@ -62,9 +62,6 @@ importers:
       '@uni-helper/uni-use':
         specifier: ^0.19.14
         version: 0.19.14(@nuxt/kit@3.15.4)(@vueuse/core@12.7.0(typescript@5.7.3))(postcss@8.5.2)(rollup@4.34.7)(typescript@5.7.3)(vue@3.4.21(typescript@5.7.3))
-      '@vingogo/uni-ui':
-        specifier: ^0.8.0
-        version: 0.8.0(vue-i18n@11.1.1(vue@3.4.21(typescript@5.7.3)))(vue@3.4.21(typescript@5.7.3))
       '@vueuse/core':
         specifier: ^12.7.0
         version: 12.7.0(typescript@5.7.3)
@@ -2816,12 +2813,6 @@ packages:
     resolution: {integrity: sha512-v2rFIrBaWGQmSJeKv7us+2OMos2RqdZYpf/seOpf4MFHrmjjiFQ1ZWkTqFyNfUxAwj6VID5frVJhxJfZuEhhug==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0-0
-
-  '@vingogo/uni-ui@0.8.0':
-    resolution: {integrity: sha512-ZB7huQMoJt1dwbbpgopiS5JpTFU6hXG63xf7L4IYY2DidEIKyAP/inSVfWZ09PeK3MAWWLAy+e0oeomOnZQuXA==}
-    peerDependencies:
-      vue: ^3.2.45
-      vue-i18n: ^9.1.9
 
   '@vitejs/plugin-legacy@5.3.2':
     resolution: {integrity: sha512-8moCOrIMaZ/Rjln0Q6GsH6s8fAt1JOI3k8nmfX4tXUxE5KAExVctSyOBk+A25GClsdSWqIk2yaUthH3KJ2X4tg==}
@@ -10729,11 +10720,6 @@ snapshots:
       vite: 5.2.8(@types/node@22.13.4)(less@4.2.2)(sass@1.78.0)(terser@5.39.0)
     transitivePeerDependencies:
       - vue
-
-  '@vingogo/uni-ui@0.8.0(vue-i18n@11.1.1(vue@3.4.21(typescript@5.7.3)))(vue@3.4.21(typescript@5.7.3))':
-    dependencies:
-      vue: 3.4.21(typescript@5.7.3)
-      vue-i18n: 11.1.1(vue@3.4.21(typescript@5.7.3))
 
   '@vitejs/plugin-legacy@5.3.2(terser@5.39.0)(vite@5.2.8(@types/node@22.13.4)(less@4.2.2)(sass@1.78.0)(terser@5.39.0))':
     dependencies:

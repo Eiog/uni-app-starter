@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { toggleTheme, toggleLoading, toast, notify, onNotify, message, actionSheet, onActionSheet } = useWdUI()
+const { toggle, toggleLoading, toast, notify, onNotify, message, actionSheet, onActionSheet } = useWdUI()
 onNotify.onClosed(() => {
   toast?.show('WdUi Notify closed')
 })
@@ -10,7 +10,7 @@ onActionSheet.onSelect(({ item }) => {
 function actions(ev: 'theme' | 'loading' | 'toast' | 'notify' | 'dialog' | 'actionSheet') {
   switch (ev) {
     case 'theme':
-      toggleTheme()
+      toggle()
       break
     case 'loading':
       toggleLoading()
@@ -49,7 +49,7 @@ function actions(ev: 'theme' | 'loading' | 'toast' | 'notify' | 'dialog' | 'acti
     <h1>WdUi Demo</h1>
     <div class="flex flex-wrap items-center justify-center gap-[10px]">
       <WdButton type="info" size="small" @click="actions('theme')">
-        ToggleTheme
+        toggle
       </WdButton>
       <WdButton type="info" size="small" @click="actions('loading')">
         ToggleLoading

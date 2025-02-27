@@ -80,7 +80,7 @@ export default defineConfig(({ mode }) => {
       },
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "nutui-uniapp/styles/variables.scss"; @import "@vingogo/uni-ui/lib/styles/variables.scss";',
+          additionalData: '@import "nutui-uniapp/styles/variables.scss";',
         },
       },
       postcss: {
